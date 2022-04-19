@@ -12,9 +12,11 @@ export const GlobalStyles = createGlobalStyle `
     margin: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
+    outline: none;
   }
 
   body {
     background-color: ${background_thirdy};
+    color: #333;
   }
 `

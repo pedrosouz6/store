@@ -10,6 +10,6 @@ export const Main = styled.main `
     }
     
     .page--dashboard__header__content {
-        flex: 1;
+        flex: 1 1 400px;
     }
 `
