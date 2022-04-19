@@ -9,11 +9,6 @@ export const Main = styled.main `
         flex-wrap: wrap;
     }
 
-    .page--dashboard__aside {
-        flex: 1 1 150px;
-        max-width: 210px;
-    }
-    
     .page--dashboard__header__content {
         flex: 1;
     }

@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import { Colors } from './styles/Default/index'; 
 
 const {
-  background_second
+  background_thirdy
 } = Colors.light;
 
 export const GlobalStyles = createGlobalStyle `
@@ -15,6 +15,6 @@ export const GlobalStyles = createGlobalStyle `
   }
 
   body {
-    background-color: ${background_second};
+    background-color: ${background_thirdy};
   }
 `

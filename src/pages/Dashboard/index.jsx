@@ -7,18 +7,16 @@ export default function Dashboard() {
     return (
         <Main>
             <div className="page--dashboard__container">
-                <div className="page--dashboard__aside">
-                    <AsideDashboard /> 
-                </div>
+                <AsideDashboard /> 
 
-                <div className="page--dashboard__header__content">
+                <section className="page--dashboard__header__content">
                     <HeaderDashboard />
                     <div className="center--dashboard">
                         <div className="page--dashboard__content">
                             <h2>Conteudo</h2>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </Main>
     )
