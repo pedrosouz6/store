@@ -15,13 +15,17 @@ export default function AsideDashboard() {
 
     function AsideClose() {
         setAsideClose(!asideClose);
+        localStorage.setItem('preferenceAside', !asideClose);
     }
 
     useEffect(() => {
-        const preference = localStorage.setItem('preferenceAside', JSON.parse(asideClose));
-        console.log(preference)
-        //setAsideClose(preference);
-    }, [asideClose]);
+        const preference = localStorage.getItem('preferenceAside');
+        const responsePreference = JSON.parse(preference);
+
+        if(responsePreference) {
+            return setAsideClose(responsePreference);
+        }
+    }, [])
 
     return (
         <Aside closeAside={asideClose}>
@@ -35,7 +39,7 @@ export default function AsideDashboard() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to='/dashboard'>
+                            <Link to='/dashboard/products'>
                                 <i><MdAddShoppingCart /></i>
                                 <span className={asideClose ? 'removeNames' : ''}>Produtos</span>
                             </Link>
@@ -47,7 +51,7 @@ export default function AsideDashboard() {
                             </Link>
                         </li>
                         <li>
-                            <Link to='/dashboard'>
+                            <Link to='/dashboard/sales'>
                                 <i><MdOutlineAttachMoney /></i>
                                 <span className={asideClose ? 'removeNames' : ''}>Vendas</span>
                             </Link>
