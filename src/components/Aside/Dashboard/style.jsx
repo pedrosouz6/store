@@ -26,8 +26,8 @@ export const Aside = styled.aside `
         display: flex;
         align-items: center;
         justify-content: end;
-        gap: .8rem;
 
+        margin-bottom: 1rem;
         padding: 0 10px;
 
         i {

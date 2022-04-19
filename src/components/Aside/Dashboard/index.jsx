@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -15,7 +15,13 @@ export default function AsideDashboard() {
 
     function AsideClose() {
         setAsideClose(!asideClose);
-    } 
+    }
+
+    useEffect(() => {
+        const preference = localStorage.setItem('preferenceAside', JSON.parse(asideClose));
+        console.log(preference)
+        //setAsideClose(preference);
+    }, [asideClose]);
 
     return (
         <Aside closeAside={asideClose}>

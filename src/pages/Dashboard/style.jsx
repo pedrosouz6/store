@@ -8,7 +8,7 @@ export const Main = styled.main `
         display: flex;
         flex-wrap: wrap;
     }
-
+    
     .page--dashboard__header__content {
         flex: 1;
     }
