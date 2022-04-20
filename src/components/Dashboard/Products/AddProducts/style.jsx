@@ -122,12 +122,13 @@ export const Container = styled.div `
             padding: 0 10px;
         }
 
-        .dashboard--products__card__name__product {
+        .dashboard--products__card__brand__product {
             font-size: 11pt;
+            margin-bottom: .2rem;
         }
 
         .dashboard--products__card__price__product {
-            margin: .5rem 0;
+            margin: .8rem 0;
             font-size: 13pt;
         }
 
