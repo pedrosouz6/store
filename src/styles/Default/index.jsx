@@ -5,6 +5,8 @@ export const Colors = {
         background_thirdy: 'rgb(255, 255, 255)',
         textColor: '#333',
         selected: '#7666e2',
-        transition: '.3s ease-in-out'
+        transition: '.3s ease-in-out',
+        errorColor: '#f02323',
+        successColor: '#279e3b'
     }
 }

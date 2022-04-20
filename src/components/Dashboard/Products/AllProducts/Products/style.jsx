@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { Colors } from '../../../../../styles/Default/index';
 
 const {
-    background_second
+    background_second,
+    errorColor,
+    transition
+    ,successColor
 } = Colors.light;
 
 export const Table = styled.table `
@@ -45,6 +48,31 @@ export const Table = styled.table `
 
     .td__actions {
         width: 140px;
+        text-align: center;
+
+        i {
+            padding: 3px;
+            margin: 0 7px;
+            cursor: pointer;
+            transition: ${transition};
+        }
+
+        .remove__item {
+            font-size: 14pt;
+        }
+        
+        .remove__item:hover {
+            color: ${errorColor};
+        }
+
+        .edit_item {
+            font-size: 15pt;
+        }
+
+        .edit_item:hover {
+            color: ${successColor};
+        }
+        
     }
 
     thead td {
@@ -59,6 +87,5 @@ export const Table = styled.table `
         img {
             max-width: 100%;
         }
-
     }
 `

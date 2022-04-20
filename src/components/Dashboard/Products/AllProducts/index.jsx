@@ -8,15 +8,11 @@ export default function DashboardProductsAllProducts() {
         <Container>
             <div className="center--dashboard">
                 <div className="dashboard--all--products__container">
-
                     <div className="dashboard--all--products__title__search">
                         <h2>Todos os produtos</h2>
-
                         <Search />
                     </div>
-
                     <DashboardProductsAllProductsProducts />
-                    
                 </div>
             </div>
         </Container>

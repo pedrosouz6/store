@@ -1,3 +1,6 @@
+import { FaTrash } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
+
 import { Table } from "./style";
 
 export default function DashboardProductsAllProductsProducts() {
@@ -28,7 +31,10 @@ export default function DashboardProductsAllProductsProducts() {
                     <td className="td__status">Desativo</td>
                     <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td>Editar</td>
+                    <td className='td__actions'> 
+                        <i className='remove__item'><FaTrash /></i>  
+                        <i className='edit_item'><FaEdit /></i> 
+                    </td>
                 </tr>
                 <tr>
                     <td>Tênis Yeezy</td>
@@ -39,7 +45,10 @@ export default function DashboardProductsAllProductsProducts() {
                     <td className="td__status">Desativo</td>
                     <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td>Editar</td>
+                    <td className='td__actions'> 
+                        <i className='remove__item'><FaTrash /></i>  
+                        <i className='edit_item'><FaEdit /></i> 
+                    </td>
                 </tr>
                 <tr>
                     <td>Tênis Yeezy</td>
@@ -50,7 +59,10 @@ export default function DashboardProductsAllProductsProducts() {
                     <td className="td__status">Desativo</td>
                     <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td>Editar</td>
+                    <td className='td__actions'> 
+                        <i className='remove__item'><FaTrash /></i>  
+                        <i className='edit_item'><FaEdit /></i> 
+                    </td>
                 </tr>
                 <tr>
                     <td>Tênis Yeezy</td>
@@ -61,7 +73,10 @@ export default function DashboardProductsAllProductsProducts() {
                     <td className="td__status">Desativo</td>
                     <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td>Editar</td>
+                    <td className='td__actions'> 
+                        <i className='remove__item'><FaTrash /></i>  
+                        <i className='edit_item'><FaEdit /></i> 
+                    </td>
                 </tr>
                 <tr>
                     <td>Tênis Yeezy</td>
@@ -72,7 +87,10 @@ export default function DashboardProductsAllProductsProducts() {
                     <td className="td__status">Desativo</td>
                     <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td>Editar</td>
+                    <td className='td__actions'> 
+                        <i className='remove__item'><FaTrash /></i>  
+                        <i className='edit_item'><FaEdit /></i> 
+                    </td>
                 </tr>
                 <tr>
                     <td>Tênis Yeezy</td>
@@ -83,7 +101,10 @@ export default function DashboardProductsAllProductsProducts() {
                     <td className="td__status">Desativo</td>
                     <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td>Editar</td>
+                    <td className='td__actions'> 
+                        <i className='remove__item'><FaTrash /></i>  
+                        <i className='edit_item'><FaEdit /></i> 
+                    </td>
                 </tr>
 
             </tbody>
