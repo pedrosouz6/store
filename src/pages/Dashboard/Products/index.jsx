@@ -1,6 +1,7 @@
 import AsideDashboard from '../../../components/Aside/Dashboard/index';
 import HeaderDashboard from '../../../components/Header/Dashboard/index';
-import DashboardProducts from '../../../components/Dashboard/Products';
+import DashboardProductsAddProducts from '../../../components/Dashboard/Products/AddProducts/index';
+import DashboardProductsAllProducts from '../../../components/Dashboard/Products/AllProducts';
 
 import { Main } from './style';
 
@@ -12,8 +13,9 @@ export default function Dashboard() {
 
                 <section className="page--dashboard__header__content">
                     <HeaderDashboard />
-                    <DashboardProducts />
-                </section>  
+                    <DashboardProductsAddProducts />
+                    <DashboardProductsAllProducts />
+                 </section>  
             </div>
         </Main>
     )

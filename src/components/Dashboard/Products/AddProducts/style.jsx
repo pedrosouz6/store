@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../../styles/Default/index';
+import { Colors } from '../../../../styles/Default/index';
 
 const {
     background_primary,
     background_thirdy,
-    transition
+    transition,
+    selected
 } = Colors.light;
 
 export const Container = styled.div `
@@ -14,7 +15,7 @@ export const Container = styled.div `
     .dashboard--products__add__products {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: 3rem;
         flex-wrap: wrap;
     }
 
@@ -24,6 +25,7 @@ export const Container = styled.div `
 
         h2 {
             margin-bottom: 1rem;
+            font-size: 16pt;
         }
 
         form {
@@ -42,7 +44,7 @@ export const Container = styled.div `
             textarea,
             select {
                 flex: 1;
-                padding: 8px 5px;
+                padding: 9px 5px;
                 border-radius: 3px;
                 border: 1px solid ${background_primary};
                 background-color: rgba(255, 255, 255, .7);
@@ -61,46 +63,74 @@ export const Container = styled.div `
                 margin-top: 1rem;
                 resize: none;
             }
+
+            .dashboard--products__button {
+                width: 140px !important;
+                display: flex;
+                justify-content: end;
+                margin-top: 1.3rem;
+
+                input {
+                    background-color: ${background_primary};
+                    color: white;
+                    letter-spacing: .3px;
+                    cursor: pointer;
+                    transition: ${transition};
+
+                    &:hover {
+                        background-color: ${selected};
+                    }
+                }
+            }
         }
     }
 
     .dashboard--products__preview__product {
-        flex: 1 1 300px;
-        max-width: 310px;
+        flex: 1 1 270px;
+        max-width: 270px;
         height: auto;
 
         h3 {
-            padding: 0 8px;
             margin-bottom: 1rem;
+            font-size: 16pt;
         }
 
         .dashboard--products__card--preview {
-            max-width: 290px;
+            width: 100%;
             margin: 0 auto;
-            background-color: white;
+            background-color: rgb(235, 235, 235);
         }
 
         .dashboard--products__card__img {
             width: 100%;
-            height: 280px;
+            height: 235px;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: silver;
             margin-bottom: .5rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .dashboard--products__card__content {
             padding: 0 10px;
         }
 
+        .dashboard--products__card__name__product {
+            font-size: 11pt;
+        }
+
         .dashboard--products__card__price__product {
             margin: .5rem 0;
-            font-size: 14pt;
+            font-size: 13pt;
         }
 
         .dashboard--products__card__btn {
-            border-top: 1px solid green;
+            border-top: 1px solid ${background_primary};
             padding: .5rem 0;
             display: flex;
             justify-content: end;
@@ -111,6 +141,7 @@ export const Container = styled.div `
                 color: white;
                 padding: 6px 15px;
                 border-radius: 3px;
+                cursor: pointer;
             }
         }
     }
