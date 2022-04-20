@@ -4,9 +4,10 @@ import { Colors } from '../../../../styles/Default/index';
 
 const {
     background_primary,
-    background_thirdy,
     transition,
-    selected
+    selected,
+    background_thirdy,
+    textColor
 } = Colors.light;
 
 export const Container = styled.div `
@@ -17,6 +18,7 @@ export const Container = styled.div `
         justify-content: center;
         gap: 3rem;
         flex-wrap: wrap;
+        padding-bottom: 2rem;
     }
 
     .dashboard--products__form__products {
@@ -46,9 +48,8 @@ export const Container = styled.div `
                 flex: 1;
                 padding: 9px 5px;
                 border-radius: 3px;
-                border: 1px solid ${background_primary};
-                background-color: rgba(255, 255, 255, .7);
-                color: #333;
+                border: 1px solid #666;
+                color: ${textColor};
                 letter-spacing: .3px;
                 transition: ${transition};
             }
@@ -56,7 +57,7 @@ export const Container = styled.div `
             input:focus, 
             textarea:focus,
             select:focus {
-                background-color: rgba(255, 255, 255, .8);
+                border-color: ${textColor};
             }
 
             textarea {
@@ -71,6 +72,7 @@ export const Container = styled.div `
                 margin-top: 1.3rem;
 
                 input {
+                    border: none;
                     background-color: ${background_primary};
                     color: white;
                     letter-spacing: .3px;
@@ -98,7 +100,7 @@ export const Container = styled.div `
         .dashboard--products__card--preview {
             width: 100%;
             margin: 0 auto;
-            background-color: rgb(235, 235, 235);
+            background-color: rgb(240, 240, 240);
         }
 
         .dashboard--products__card__img {
@@ -107,7 +109,7 @@ export const Container = styled.div `
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: silver;
+            background-color: rgb(205, 205, 205);
             margin-bottom: .5rem;
 
             img {
@@ -130,7 +132,7 @@ export const Container = styled.div `
         }
 
         .dashboard--products__card__btn {
-            border-top: 1px solid ${background_primary};
+            border-top: 1px solid ${background_thirdy};
             padding: .5rem 0;
             display: flex;
             justify-content: end;
