@@ -71,24 +71,24 @@ export default function DashboardProductsAddProducts() {
 
                             <div className="dashboard--products__card--preview">
                                 <div className="dashboard--products__card__img">
-                                    { urlImage === '' ? 'Imagem do Produto' : <img src={urlImage} alt="Endereço errado" /> }
+                                    { urlImage.trim() === '' ? 'Imagem do Produto' : <img src={urlImage} alt="Endereço errado" /> }
                                 </div>
 
                                 <div className="dashboard--products__card__content">
                                     <div className="dashboard--products__card__brand__product">
                                         <p>
                                             <strong>
-                                                { brandProduct === '' ? 'Marca do Produto' : brandProduct }
+                                                { brandProduct.trim() === '' ? 'Marca do Produto' : brandProduct }
                                             </strong>
                                         </p>
                                     </div>
 
                                     <div className="dashboard--products__card__name__product">
-                                        <p>{ nameProduct === '' ? 'Nome do Produto' : nameProduct }</p>
+                                        <p>{ nameProduct.trim() === '' ? 'Nome do Produto' : nameProduct }</p>
                                     </div>
 
                                     <div className="dashboard--products__card__price__product">
-                                        { priceProduct === '' ? 'Preço' : 'R$ ' + priceProduct.replace('.', ',') }
+                                        { priceProduct.trim() === '' ? 'Preço' : 'R$ ' + priceProduct.replace('.', ',') }
                                     </div>
                                     
                                     <div className="dashboard--products__card__btn">
