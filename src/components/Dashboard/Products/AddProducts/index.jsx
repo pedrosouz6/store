@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { instance } from '../../../../services/index';
 import PopUp from '../../../PopUp';
+import DashboardProductsPreview from '../Preview';
 
 import { Container } from './style';
 
@@ -140,38 +141,12 @@ export default function DashboardProductsAddProducts() {
 
                         </div>
 
-                        <article className="dashboard--products__preview__product">
-
-                            <h3>Veja como está ficando</h3>
-
-                            <div className="dashboard--products__card--preview">
-                                <div className="dashboard--products__card__img">
-                                    { urlImage.trim()  === '' ? 'Imagem do Produto' : <img src={urlImage} alt="Endereço errado" /> }
-                                </div>
-
-                                <div className="dashboard--products__card__content">
-                                    <div className="dashboard--products__card__brand__product">
-                                        <p>
-                                            <strong>
-                                                { brandProduct.trim() === '' ? 'Marca do Produto' : brandProduct }
-                                            </strong>
-                                        </p>
-                                    </div>
-
-                                    <div className="dashboard--products__card__name__product">
-                                        <p>{ nameProduct.trim() === '' ? 'Nome do Produto' : nameProduct }</p>
-                                    </div>
-
-                                    <div className="dashboard--products__card__price__product">
-                                        { priceProduct.trim() === '' ? 'Preço' : 'R$ ' + priceProduct.replace('.', ',') }
-                                    </div>
-                                    
-                                    <div className="dashboard--products__card__btn">
-                                        <button>Ver mais</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                        <DashboardProductsPreview 
+                        urlImage={urlImage} 
+                        brandProduct={brandProduct} 
+                        nameProduct={nameProduct} 
+                        priceProduct={priceProduct} />
+                        
                     </div>
                 </div>
             </div>
