@@ -7,7 +7,8 @@ const {
     transition,
     selected,
     background_thirdy,
-    textColor
+    textColor,
+    errorColor
 } = Colors.light;
 
 export const Container = styled.div `
@@ -63,6 +64,12 @@ export const Container = styled.div `
             textarea {
                 margin-top: 1rem;
                 resize: none;
+            }
+
+            .dashboard--products__message__erro {
+                margin-top: 1rem;
+                text-align: center;
+                color: ${errorColor};
             }
 
             .dashboard--products__button {

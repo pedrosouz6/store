@@ -7,6 +7,6 @@ export const Colors = {
         selected: '#7666e2',
         transition: '.3s ease-in-out',
         errorColor: '#f02323',
-        successColor: '#279e3b'
+        successColor: '#37b64d'
     }
 }
