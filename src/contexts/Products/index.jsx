@@ -8,18 +8,29 @@ export default function ProviderProducts({ children }) {
 
     const [ datasProducts, setDatasProducts ] = useState([]);
     const [ addNewProduct, setAddNewProduct ] = useState(false);
+    const [ errorAPI, setErroAPI ] = useState(false);
 
     useEffect(() => {
         instance.get('/get/products')
         .then(response => response.data)
-        .then(respost => setDatasProducts(respost.results));
-    }, [addNewProduct])
+        .then(respost => {
+            console.log(respost)
+            setErroAPI(respost.error);
+
+            if(!respost.error) {
+                setErroAPI(respost.error)
+                setDatasProducts(respost.results);
+            }
+        });
+    }, [addNewProduct]);
+
 
     return(
         <ContextProducts.Provider value={{
             datasProducts,
             addNewProduct,
-            setAddNewProduct
+            setAddNewProduct,
+            errorAPI
         }}>
 
             { children }

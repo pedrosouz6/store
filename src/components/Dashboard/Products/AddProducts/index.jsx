@@ -23,7 +23,7 @@ export default function DashboardProductsAddProducts() {
 
     const [ errorValidate, setErrorValidate ] = useState(false);
 
-    const [ messageAPI, setMessageAPI ] = useState('');
+    const [ messageAPI, setMessageAPI ] = useState(null);
 
     function FieldValidation(e) {
         e.preventDefault();
@@ -42,6 +42,7 @@ export default function DashboardProductsAddProducts() {
         }
 
         setErrorValidate(false);
+        setMessageAPI(null);
         AddProduct();
     }
 
@@ -58,12 +59,13 @@ export default function DashboardProductsAddProducts() {
         })
         .then(response => response.data)
         .then(respost => {
+            console.log(respost)
             if(respost.error) {
-                return setMessageAPI(respost.message);
+                return setMessageAPI(false);
             }
 
+            setMessageAPI(true);
             ClearFields();
-            return setMessageAPI(respost.message);
         })
     }
     
@@ -84,7 +86,8 @@ export default function DashboardProductsAddProducts() {
         <Container>
             <div className='center--dashboard'>
 
-                { !messageAPI == '' && <PopUp text={messageAPI} /> }
+                { messageAPI === true ? <PopUp text='Produto adicionado com sucesso.' class='success'  /> : 
+                messageAPI === false && <PopUp text='Erro ao adicionar produto.' class='error' /> }
 
                 <div className='dashboard--products__container'>
                     <div className='dashboard--products__add__products'>
@@ -128,7 +131,7 @@ export default function DashboardProductsAddProducts() {
                                     onChange={e => setAmountProduct(e.target.value)} />
 
                                     <select className='three-items' onChange={e => setStatusProduct(e.target.value)}>
-                                        <option disabled selected>Escolher o status</option>
+                                        <option selected={statusProduct == '' && true} >Escolher o status</option>
                                         <option value={true}>Ativo</option>
                                         <option value={false}>Desativo</option>
                                     </select>
