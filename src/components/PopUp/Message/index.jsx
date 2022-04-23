@@ -1,6 +1,6 @@
 import { Container } from "./style"
 
-export default function PopUp(props) {
+export default function PopUpMessage(props) {
     return(
         <Container>
             <div className={`popup ${props.class}`}>

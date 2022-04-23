@@ -1,16 +1,29 @@
+import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 
 import { useProducts } from '../../../../../hooks/Products/index';
+import PopUpDeleteProduct from '../../../../PopUp/DeleteProduct';
 
 import { Container } from "./style";
 
 export default function DashboardProductsAllProductsProducts() {
 
+    const [ popUpDelete, setPopUpDelete ] = useState(false);
+    const [ idDelete, setIdDelete ] = useState(null);
+
     const { datasProducts, errorAPI } = useProducts();
+
+    function PopUpDelete(id) {
+        setPopUpDelete(true);
+        setIdDelete(id);
+    }
 
     return (
         <Container>
+            
+            { popUpDelete && <PopUpDeleteProduct id={idDelete} setPopUpDelete={setPopUpDelete} /> }
+
             { !errorAPI ? 
              
                 <table>
@@ -53,7 +66,7 @@ export default function DashboardProductsAllProductsProducts() {
                                 </td>
 
                                 <td className='td__actions'> 
-                                    <i className='remove__item'><FaTrash /></i>  
+                                    <i className='remove__item' onClick={() => PopUpDelete(item.id_product)}><FaTrash /></i>  
                                     <i className='edit_item'><FaEdit /></i> 
                                 </td>
                             </tr>

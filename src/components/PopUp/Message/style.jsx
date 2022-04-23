@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../styles/Default';
+import { Colors } from '../../../styles/Default';
 
 const {
     successColor,
     errorColor,
-    background_second
 } = Colors.light;
 
 export const Container = styled.div `

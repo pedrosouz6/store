@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { instance } from '../../../../services/index';
 import { useProducts } from '../../../../hooks/Products';
 
-import PopUp from '../../../PopUp';
+import PopUp from '../../../PopUp/Message';
 import DashboardProductsPreview from '../Preview';
 
 import { Container } from './style';
