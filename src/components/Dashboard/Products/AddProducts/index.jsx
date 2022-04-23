@@ -1,12 +1,16 @@
 import { useState } from 'react';
 
 import { instance } from '../../../../services/index';
+import { useProducts } from '../../../../hooks/Products';
+
 import PopUp from '../../../PopUp';
 import DashboardProductsPreview from '../Preview';
 
 import { Container } from './style';
 
 export default function DashboardProductsAddProducts() {
+
+    const { addNewProduct, setAddNewProduct } = useProducts();
 
     const [ nameProduct, setNameProduct ] = useState('');
     const [ brandProduct, setBrandProduct ] = useState('');
@@ -58,8 +62,22 @@ export default function DashboardProductsAddProducts() {
                 return setMessageAPI(respost.message);
             }
 
+            ClearFields();
             return setMessageAPI(respost.message);
         })
+    }
+    
+    function ClearFields() {
+        setAddNewProduct(!addNewProduct);
+
+        setNameProduct('');
+        setBrandProduct('');
+        setCategoryProduct('');
+        setPriceProduct('');
+        setAmountProduct('');
+        setStatusProduct('');
+        setUrlImage('');
+        setDescriptionProduct('');
     }
 
     return (

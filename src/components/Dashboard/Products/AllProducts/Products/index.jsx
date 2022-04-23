@@ -1,114 +1,52 @@
 import { FaTrash } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 
-import { Table } from "./style";
+import { useProducts } from '../../../../../hooks/Products/index';
+
+import { Container } from "./style";
 
 export default function DashboardProductsAllProductsProducts() {
+
+    const { datasProducts } = useProducts();
+
     return (
-        <Table>
+        <Container>
+            <table>
+                <thead>
+                    <tr>
+                        <td className="td__name">Nome</td>
+                        <td className="td__brand">Marca</td>
+                        <td className="td__category">Categoria</td>
+                        <td className="td__price">Preço</td>
+                        <td className="td__amount">Quant</td>
+                        <td className="td__status">Status</td>
+                        <td className="td__image">Imagem</td>
+                        <td className="td__description">Descrição</td>
+                        <td className="td__actions">Ações</td>
+                    </tr>
+                </thead>
 
-            <thead>
-                <tr>
-                    <td className="td__name">Nome</td>
-                    <td className="td__brand">Marca</td>
-                    <td className="td__category">Categoria</td>
-                    <td className="td__price">Preço</td>
-                    <td className="td__amount">Quant</td>
-                    <td className="td__status">Status</td>
-                    <td className="td__image">Imagem</td>
-                    <td className="td__description">Descrição</td>
-                    <td className="td__actions">Ações</td>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>Tênis Yeezy</td>
-                    <td>Adidas</td>
-                    <td>Tênis</td>
-                    <td>R$ 399,99</td>
-                    <td className="td__amount">345</td>
-                    <td className="td__status">Desativo</td>
-                    <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td className='td__actions'> 
-                        <i className='remove__item'><FaTrash /></i>  
-                        <i className='edit_item'><FaEdit /></i> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tênis Yeezy</td>
-                    <td>Adidas Nike</td>
-                    <td>Tênis</td>
-                    <td>R$ 399,99</td>
-                    <td className="td__amount">345</td>
-                    <td className="td__status">Desativo</td>
-                    <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td className='td__actions'> 
-                        <i className='remove__item'><FaTrash /></i>  
-                        <i className='edit_item'><FaEdit /></i> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tênis Yeezy</td>
-                    <td>Adidas</td>
-                    <td>Tênis</td>
-                    <td>R$ 399,99</td>
-                    <td className="td__amount">345</td>
-                    <td className="td__status">Desativo</td>
-                    <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td className='td__actions'> 
-                        <i className='remove__item'><FaTrash /></i>  
-                        <i className='edit_item'><FaEdit /></i> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tênis Yeezy</td>
-                    <td>Adidas</td>
-                    <td>Tênis</td>
-                    <td>R$ 399,99</td>
-                    <td className="td__amount">345</td>
-                    <td className="td__status">Desativo</td>
-                    <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td className='td__actions'> 
-                        <i className='remove__item'><FaTrash /></i>  
-                        <i className='edit_item'><FaEdit /></i> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tênis Yeezy</td>
-                    <td>Adidas</td>
-                    <td>Tênis</td>
-                    <td>R$ 399,99</td>
-                    <td className="td__amount">345</td>
-                    <td className="td__status">Desativo</td>
-                    <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td className='td__actions'> 
-                        <i className='remove__item'><FaTrash /></i>  
-                        <i className='edit_item'><FaEdit /></i> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tênis Yeezy</td>
-                    <td>Adidas</td>
-                    <td>Tênis</td>
-                    <td>R$ 399,99</td>
-                    <td className="td__amount">345</td>
-                    <td className="td__status">Desativo</td>
-                    <td><img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' /></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestiae, cupiditate porro aliquam sapiente magnam.</td>
-                    <td className='td__actions'> 
-                        <i className='remove__item'><FaTrash /></i>  
-                        <i className='edit_item'><FaEdit /></i> 
-                    </td>
-                </tr>
-
-            </tbody>
-            
-        </Table>
+                <tbody>
+                    { datasProducts.map((item, key) => (
+                        <tr key={key}>
+                            <td>{ item.name_product }</td>
+                            <td>{ item.brand_product }</td>
+                            <td>{ item.category_product }</td>
+                            <td> R$ { item.price_product }</td>
+                            <td className="td__amount">{ item.amount_product }</td>
+                            <td className="td__status">{ item.status_product === 1 ? 'Ativo' : 'Desativo' }</td>
+                            <td>
+                                <img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' />
+                            </td>
+                            <td className="td__description">{ item.description_product === '' ? 'Produto sem descrição' : item.description_product }</td>
+                            <td className='td__actions'> 
+                                <i className='remove__item'><FaTrash /></i>  
+                                <i className='edit_item'><FaEdit /></i> 
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </Container>
     )
 }
