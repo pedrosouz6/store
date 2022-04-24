@@ -15,7 +15,7 @@ export default function DashboardProductsAllProductsProducts() {
     const [ popUpDelete, setPopUpDelete ] = useState(false);
     const [ idDelete, setIdDelete ] = useState(null);
 
-    const { datasProducts, errorAPI } = useProducts();
+    const { datasProducts, errorAPI, productsFilters } = useProducts();
 
     function PopUpDelete(id) {
         setPopUpDelete(true);
@@ -50,7 +50,7 @@ export default function DashboardProductsAllProductsProducts() {
 
                     <tbody>
 
-                        { datasProducts.map((item, key) => (
+                        { productsFilters.length > 0 ? productsFilters.map((item, key) => (
                             <tr key={key}>
                                 <td>{ item.name_product }</td>
                                 <td>{ item.brand_product }</td>
@@ -77,7 +77,7 @@ export default function DashboardProductsAllProductsProducts() {
                                     <i className='edit_item' onClick={() => UpdateProducts(item.id_product)}><FaEdit /></i> 
                                 </td>
                             </tr>
-                        ))}
+                        )) : 'Nenhum produto com essa descrição'}
 
                     </tbody>
                 </table>

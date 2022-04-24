@@ -7,6 +7,7 @@ export const ContextProducts = createContext();
 export default function ProviderProducts({ children }) {
 
     const [ datasProducts, setDatasProducts ] = useState([]);
+    const [ productsFilters, setProductsFilters ] = useState([]);
     const [ addNewProduct, setAddNewProduct ] = useState(false);
     const [ errorAPI, setErroAPI ] = useState(false);
 
@@ -27,7 +28,8 @@ export default function ProviderProducts({ children }) {
     return(
         <ContextProducts.Provider value={{
             datasProducts,
-            setDatasProducts,
+            productsFilters,
+            setProductsFilters,
             addNewProduct,
             setAddNewProduct,
             errorAPI

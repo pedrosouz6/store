@@ -1,7 +1,7 @@
 export const Colors = {
     light: {
         background_primary: '#6959CD',
-        background_second: 'rgb(202, 196, 240)',
+        background_second: 'rgb(225, 222, 243)',
         background_thirdy: 'rgb(255, 255, 255)',
         textColor: '#333',
         selected: '#7666e2',
