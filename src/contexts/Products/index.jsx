@@ -14,7 +14,6 @@ export default function ProviderProducts({ children }) {
         instance.get('/get/products')
         .then(response => response.data)
         .then(respost => {
-            console.log(respost)
             setErroAPI(respost.error);
 
             if(!respost.error) {
@@ -28,6 +27,7 @@ export default function ProviderProducts({ children }) {
     return(
         <ContextProducts.Provider value={{
             datasProducts,
+            setDatasProducts,
             addNewProduct,
             setAddNewProduct,
             errorAPI

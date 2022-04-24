@@ -59,7 +59,6 @@ export default function DashboardProductsAddProducts() {
         })
         .then(response => response.data)
         .then(respost => {
-            console.log(respost)
             if(respost.error) {
                 return setMessageAPI(false);
             }

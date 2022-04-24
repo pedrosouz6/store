@@ -2,10 +2,9 @@ import { MdClose } from 'react-icons/md';
 
 import { instance } from '../../../services';
 import { useProducts } from '../../../hooks/Products';
-import PopUpMessage from '../Message/index';
 
 import { Container } from "./style";
-import { useState } from 'react';
+
 
 export default function PopUpDeleteProduct({ id, setPopUpDelete }) {
 
