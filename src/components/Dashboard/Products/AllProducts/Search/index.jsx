@@ -6,14 +6,23 @@ import { Container } from "./style";
 
 export default function DashboardProductsAllProductsSearch() {
 
-    const { datasProducts, setProductsFilters } = useProducts();
+    const { datasProducts, setProductsFilters, addNewProduct } = useProducts();
 
-    const [ nameProduct, setNameProduct ] = useState('');
+    const [ nameProducts, setNameProducts ] = useState('');
     const [ brandProduct, setBrandProduct ] = useState('');
     const [ categoryProduct, setCategoryProduct ] = useState('');
     const [ statusValue, setStatusValue ] = useState('');
-    
+
+    const brandNoRepeat = new Set();
+    const categoryNoRepeat = new Set();
+
+    datasProducts.forEach(element => {
+        brandNoRepeat.add(element.brand_product);
+        categoryNoRepeat.add(element.category_product);
+    });
+
     useEffect(() => {
+        const nameProduct = nameProducts.trim();
         instance.post(`/filter/products`, {
             nameProduct,
             brandProduct,
@@ -21,8 +30,10 @@ export default function DashboardProductsAllProductsSearch() {
             statusValue
         })
         .then(response => response.data)
-        .then(respost => setProductsFilters(respost.results))
-    }, [nameProduct, brandProduct, categoryProduct, statusValue]);
+        .then(respost => {
+            setProductsFilters(respost.results);
+        })
+    }, [nameProducts, brandProduct, categoryProduct, statusValue, addNewProduct]);
 
 
     return (
@@ -32,16 +43,16 @@ export default function DashboardProductsAllProductsSearch() {
                 <input
                 type="text"
                 placeholder="Nome do produto"
-                onChange={(e) => setNameProduct(e.target.value)} />
+                onChange={(e) => setNameProducts(e.target.value)} />
             </div>
 
             <select onChange={(e) => setBrandProduct(e.target.value)}>
 
                 <option value="">Marca</option>
 
-                { datasProducts.map((item, key) => (
-                    <option value={item.brand_product} key={key}>
-                        { item.brand_product }
+                { [...brandNoRepeat].map((item, key) => (
+                    <option value={item} key={key}>
+                        { item }
                     </option>
                 )) }
 
@@ -51,9 +62,9 @@ export default function DashboardProductsAllProductsSearch() {
 
                 <option value=''>Categoria</option>
 
-                { datasProducts.map((item, key) => (
-                    <option value={item.category_product} key={key}>
-                        { item.category_product }
+                { [...categoryNoRepeat].map((item, key) => (
+                    <option value={item} key={key}>
+                        { item }
                     </option>
                 )) }
 

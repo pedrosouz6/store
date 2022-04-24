@@ -14,9 +14,19 @@ export const Container = styled.div `
     display: flex;
     justify-content: center;
 
+    p {
+        width: 100%;
+        display: block;
+        padding: 8px;
+        text-align: center;
+        margin-top: 1rem;
+        background-color: ${background_second};
+    }
+
     table {
         width: 100%;
         border-collapse: collapse;
+
         
         td {
             padding: 5px 7px;
