@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 
@@ -9,6 +10,8 @@ import { Container } from "./style";
 
 export default function DashboardProductsAllProductsProducts() {
 
+    const navigate = useNavigate()
+
     const [ popUpDelete, setPopUpDelete ] = useState(false);
     const [ idDelete, setIdDelete ] = useState(null);
 
@@ -17,6 +20,10 @@ export default function DashboardProductsAllProductsProducts() {
     function PopUpDelete(id) {
         setPopUpDelete(true);
         setIdDelete(id);
+    }
+
+    function UpdateProducts(id) {
+        navigate(`/dashboard/products/update/${id}`);
     }
 
     return (
@@ -48,7 +55,7 @@ export default function DashboardProductsAllProductsProducts() {
                                 <td>{ item.name_product }</td>
                                 <td>{ item.brand_product }</td>
                                 <td>{ item.category_product }</td>
-                                <td> R$ { item.price_product }</td>
+                                <td> R$ { item.price_product },00</td>
                                 <td className="td__amount">{ item.amount_product }</td>
 
                                 <td className="td__status">
@@ -67,7 +74,7 @@ export default function DashboardProductsAllProductsProducts() {
 
                                 <td className='td__actions'> 
                                     <i className='remove__item' onClick={() => PopUpDelete(item.id_product)}><FaTrash /></i>  
-                                    <i className='edit_item'><FaEdit /></i> 
+                                    <i className='edit_item' onClick={() => UpdateProducts(item.id_product)}><FaEdit /></i> 
                                 </td>
                             </tr>
                         ))}

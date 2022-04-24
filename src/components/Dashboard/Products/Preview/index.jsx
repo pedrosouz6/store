@@ -24,7 +24,7 @@ export default function DashboardProductsPreview({ urlImage, brandProduct, nameP
                     </div>
 
                     <div className="dashboard--products__card__price__product">
-                        { priceProduct.trim() === '' ? 'Preço' : 'R$ ' + priceProduct.replace('.', ',') }
+                        { priceProduct === '' ? 'Preço' : 'R$ ' + priceProduct+',00' }
                     </div>
                     
                     <div className="dashboard--products__card__btn">
