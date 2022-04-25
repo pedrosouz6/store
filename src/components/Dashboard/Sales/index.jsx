@@ -1,7 +1,18 @@
+import DashboardSalesCards from "./Cards";
+import DashboardSalesGrafic from "./Grafic";
+
+import { Container } from "./style";
+
 export default function DashboardSales() {
     return (
-        <div className="center--dashboard">
-            <h1>sales</h1>
-        </div>
+        <Container>
+            <div className="center--dashboard">
+                <h1>Vendas</h1>
+                <div className="dashboard--sales__container">
+                    <DashboardSalesCards />
+                    <DashboardSalesGrafic />
+                </div>
+            </div>
+        </Container>
     )
 }
