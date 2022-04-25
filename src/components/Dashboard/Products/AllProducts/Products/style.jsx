@@ -14,7 +14,7 @@ export const Container = styled.div `
     display: flex;
     justify-content: center;
 
-    p {
+    #nothing--products {
         width: 100%;
         display: block;
         padding: 8px;

@@ -1,5 +1,5 @@
 import DashboardSalesCards from "./Cards";
-import DashboardSalesGrafic from "./Grafic";
+import DashboardSalesGrafic from "./Graphic";
 
 import { Container } from "./style";
 

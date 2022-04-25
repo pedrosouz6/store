@@ -82,7 +82,7 @@ export default function DashboardProductsAllProductsProducts() {
                         </tbody>
                 </table>
 
-                : (<p>Nenhum produto com essa(s) característica(s) foi encontrado. </p>)
+                : (<p id='nothing--products'>Nenhum produto com essa(s) característica(s) foi encontrado. </p>)
             }
         </Container>
     )
