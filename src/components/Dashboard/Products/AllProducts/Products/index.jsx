@@ -39,6 +39,7 @@ export default function DashboardProductsAllProductsProducts() {
                             <td className="td__name">Nome</td>
                             <td className="td__brand">Marca</td>
                             <td className="td__category">Categoria</td>
+                            <td className='td__gender'>Gênero</td>
                             <td className="td__price">Preço</td>
                   
                             <td className="td__amount">Quant</td>
@@ -55,6 +56,7 @@ export default function DashboardProductsAllProductsProducts() {
                                     <td>{ item.name_product }</td>
                                     <td>{ item.brand_product }</td>
                                     <td>{ item.category_product }</td>
+                                    <td>{ item.gender_product ? item.gender_product : 'Sem gênero' }</td>
                                     <td> R$ { item.price_product },00</td>
                                     <td className="td__amount">{ item.amount_product }</td>
     

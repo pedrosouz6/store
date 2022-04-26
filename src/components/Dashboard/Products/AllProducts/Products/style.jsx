@@ -43,6 +43,10 @@ export const Container = styled.div `
         .td__name {
             width: 130px;
         }
+
+        .td__gender {
+            width: 130px;
+        }
     
         .td__brand {
             width: 130px;

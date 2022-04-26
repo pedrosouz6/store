@@ -20,6 +20,7 @@ export default function DashboardProductsUpdateProducts() {
     const [ brandProduct, setBrandProduct ] = useState('');
     const [ categoryProduct, setCategoryProduct ] = useState('');
     const [ descriptionProduct, setDescriptionProduct ] = useState('');
+    const [ genderProduct, setGenderProduct ] = useState('');
     const [ statusProduct, setStatusProduct ] = useState('');
     const [ amountProduct, setAmountProduct ] = useState('');
     const [ priceProduct, setPriceProduct ] = useState('');
@@ -34,6 +35,7 @@ export default function DashboardProductsUpdateProducts() {
 
         const validate = 
         nameProduct.trim() === '' || 
+        genderProduct.trim() === '' ||
         brandProduct.trim() === '' || 
         categoryProduct.trim() === '' || 
         statusProduct === '' || 
@@ -55,6 +57,7 @@ export default function DashboardProductsUpdateProducts() {
             nameProduct,
             brandProduct,
             categoryProduct,
+            genderProduct,
             statusProduct,
             amountProduct,
             priceProduct,
@@ -87,6 +90,7 @@ export default function DashboardProductsUpdateProducts() {
                 setNameProduct(datas.name_product);
                 setBrandProduct(datas.brand_product);
                 setCategoryProduct(datas.category_product);
+                setGenderProduct(datas.gender_product);
                 setPriceProduct(datas.price_product);
                 setAmountProduct(datas.amount_product);
                 setStatusProduct(datas.status_product);
@@ -132,6 +136,11 @@ export default function DashboardProductsUpdateProducts() {
                                 </div>
 
                                 <div className="dashboard--products__three-items">
+                                    <input 
+                                    type="text"
+                                    placeholder='Gênero'
+                                    value={genderProduct}
+                                    onChange={e => setGenderProduct(e.target.value)} />
 
                                     <input 
                                     type="number" 

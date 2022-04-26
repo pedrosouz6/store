@@ -24,7 +24,6 @@ export default function ProviderProducts({ children }) {
         });
     }, [addNewProduct]);
 
-
     return(
         <ContextProducts.Provider value={{
             datasProducts,

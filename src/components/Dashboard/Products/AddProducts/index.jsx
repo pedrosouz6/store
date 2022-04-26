@@ -15,6 +15,7 @@ export default function DashboardProductsAddProducts() {
     const [ nameProduct, setNameProduct ] = useState('');
     const [ brandProduct, setBrandProduct ] = useState('');
     const [ categoryProduct, setCategoryProduct ] = useState('');
+    const [ genderProduct, setGenderProduct ] = useState('');
     const [ descriptionProduct, setDescriptionProduct ] = useState('');
     const [ statusProduct, setStatusProduct ] = useState('');
     const [ amountProduct, setAmountProduct ] = useState('');
@@ -30,6 +31,7 @@ export default function DashboardProductsAddProducts() {
 
         const validate = 
         nameProduct.trim() === '' || 
+        genderProduct.trim() === '' ||
         brandProduct.trim() === '' || 
         categoryProduct.trim() === '' || 
         statusProduct.trim() === '' || 
@@ -51,6 +53,7 @@ export default function DashboardProductsAddProducts() {
             nameProduct,
             brandProduct,
             categoryProduct,
+            genderProduct,
             statusProduct,
             amountProduct,
             priceProduct,
@@ -113,9 +116,15 @@ export default function DashboardProductsAddProducts() {
                                     placeholder='Categoria'
                                     value={categoryProduct}
                                     onChange={e => setCategoryProduct(e.target.value)} />
+
                                 </div>
 
                                 <div className="dashboard--products__three-items">
+                                    <input 
+                                    type="text"
+                                    placeholder='Gênero'
+                                    value={genderProduct}
+                                    onChange={e => setGenderProduct(e.target.value)} />
 
                                     <input 
                                     type="number" 
