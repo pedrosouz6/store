@@ -1,6 +1,7 @@
 import { useProducts } from "../../../hooks/Products";
 
 import StoreAllProductsFilter from "./Filter";
+import StoreFooter from "../Footer";
 import { Container } from "./style";
 
 export default function StoreAllProducts(){
@@ -29,6 +30,7 @@ export default function StoreAllProducts(){
                     </div>
                 </div>
             </div>
+            <StoreFooter />
         </Container>
     )
 }
