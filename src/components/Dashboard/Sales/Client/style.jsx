@@ -32,7 +32,7 @@ export const Container = styled.div `
         }
 
         tbody td {
-            padding: 9px 7px;
+            padding: 10px 7px;
         }
 
         tr:nth-child(even) {

@@ -24,7 +24,7 @@ export default function DashboardSalesGrafic() {
 
     const options = {
         title: "Top 5 produtos mais vendidos",
-        width: 600,
+        width: 550,
         height: 400,
         bar: { groupWidth: "60%" },
         legend: { position: "none" },
@@ -40,7 +40,7 @@ export default function DashboardSalesGrafic() {
     ];
 
     const optionsSales = {
-        width: 600,
+        width: 550,
         height: 400,
         legend: { position: "bottom" },
         backgroundColor: 'none'
