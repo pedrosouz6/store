@@ -65,7 +65,7 @@ export default function DashboardProductsAllProductsProducts() {
                                     </td>
     
                                     <td>
-                                        <img src='https://img.freepik.com/fotos-gratis/fundo-de-pintura-grunge_1409-1337.jpg?w=2000' alt='Imagem do produto' />
+                                        <img src={item.url_product} alt='Imagem do produto' />
                                     </td>
     
                                     <td className="td__description">
