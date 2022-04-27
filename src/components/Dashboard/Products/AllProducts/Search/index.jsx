@@ -11,14 +11,17 @@ export default function DashboardProductsAllProductsSearch() {
     const [ nameProducts, setNameProducts ] = useState('');
     const [ brandProduct, setBrandProduct ] = useState('');
     const [ categoryProduct, setCategoryProduct ] = useState('');
+    const [ genderProduct, setGenderProduct ] = useState('');
     const [ statusValue, setStatusValue ] = useState('');
 
     const brandNoRepeat = new Set();
     const categoryNoRepeat = new Set();
+    const genderNoRepeat = new Set();
 
     datasProducts.forEach(element => {
         brandNoRepeat.add(element.brand_product);
         categoryNoRepeat.add(element.category_product);
+        genderNoRepeat.add(element.gender_product);
     });
 
     useEffect(() => {
@@ -27,13 +30,14 @@ export default function DashboardProductsAllProductsSearch() {
             nameProduct,
             brandProduct,
             categoryProduct,
-            statusValue
+            statusValue,
+            genderProduct
         })
         .then(response => response.data)
         .then(respost => {
             setProductsFilters(respost.results);
         })
-    }, [nameProducts, brandProduct, categoryProduct, statusValue, addNewProduct]);
+    }, [nameProducts, brandProduct, categoryProduct, statusValue, addNewProduct, genderProduct]);
 
 
     return (
@@ -63,6 +67,18 @@ export default function DashboardProductsAllProductsSearch() {
                 <option value=''>Categoria</option>
 
                 { [...categoryNoRepeat].map((item, key) => (
+                    <option value={item} key={key}>
+                        { item }
+                    </option>
+                )) }
+
+            </select>
+
+            <select onChange={(e) => setGenderProduct(e.target.value)}>
+
+                <option value=''>Gênero</option>
+
+                { [...genderNoRepeat].map((item, key) => (
                     <option value={item} key={key}>
                         { item }
                     </option>

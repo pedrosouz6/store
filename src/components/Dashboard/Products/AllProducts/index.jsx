@@ -8,14 +8,14 @@ import { Container } from "./style";
 
 export default function DashboardProductsAllProducts() {
 
-    const { errorAPI } = useProducts();
+    const { errorAPI, datasProducts } = useProducts();
 
     return (
         <Container>
             <div className="center--dashboard">
                 <div className="dashboard--all--products__container">
                     <div className="dashboard--all--products__title__search">
-                        <h2>Todos os produtos</h2>
+                        <h2>Todos os produtos { datasProducts.length }</h2>
                         { !errorAPI && <Search /> }
                         
                     </div>
