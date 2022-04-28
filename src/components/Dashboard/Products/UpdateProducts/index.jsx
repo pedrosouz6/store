@@ -72,7 +72,8 @@ export default function DashboardProductsUpdateProducts() {
 
             setMessageAPI(true);
             setAddNewProduct(!addNewProduct);
-            navigate('/');
+            //A página '/' não atualizará
+            navigate('/dashboard/products');
         })
     }
     
