@@ -72,7 +72,7 @@ export default function DashboardProductsUpdateProducts() {
 
             setMessageAPI(true);
             setAddNewProduct(!addNewProduct);
-            navigate('/dashboard/products')
+            navigate('/');
         })
     }
     
