@@ -8,8 +8,6 @@ export default function StoreAllProducts(){
 
     const { datasProducts } = useProducts();
 
-    console.log(datasProducts)
-
     return (
         <Container>
             <div className="center--store">
@@ -40,7 +38,11 @@ export default function StoreAllProducts(){
                                         <p>R$ {item.price_product},00</p>
                                     </div>
 
+                                    <div className="store--all--products__cards__button__add">
+                                        <button>Adicionar a sacola</button>
+                                    </div>
                                 </div>
+
                             </div>  
                         )) }
                     </div>

@@ -1,5 +1,5 @@
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import StoreSearch from '../../Store/Search';
 import { Header } from './style';
@@ -29,10 +29,12 @@ export default function HeaderStore() {
                     <div className="header--store__bottom">
                         <nav>
                             <ul>
-                                <li>Novidades</li>
-                                <li>Tênis</li>
-                                <li>Masculino</li>
-                                <li>Feminino</li>
+                                <li><NavLink to='/' activeClassName='active'>Todos os produtos</NavLink></li>
+                                <li><NavLink to='/news' activeClassName='active'>Novidades</NavLink></li>
+                                <li><NavLink to='/sneakers' activeClassName='active'>Tênis</NavLink></li>
+                                <li><NavLink to='/slipper' activeClassName='active' >Chinelo</NavLink></li>
+                                <li><NavLink to='/masculine' activeClassName='active' >Masculino</NavLink></li>
+                                <li><NavLink to='/feminine' activeClassName='active' >Feminine</NavLink></li>
                             </ul>
                         </nav>
                     </div>

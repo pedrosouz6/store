@@ -49,8 +49,14 @@ export const Header = styled.header `
         align-items: center;
         justify-content: space-between;
 
-        li {
+        li a {
+            text-decoration: none;
             color: white;
+            padding: 5px 0 2px 0;
+        }
+        
+        li .active {
+            border-bottom: 1px solid white;
         }
     }
 `

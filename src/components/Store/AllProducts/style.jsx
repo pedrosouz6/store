@@ -33,6 +33,35 @@ export const Container = styled.main `
         .store--all--products__cards__content {
             padding: 10px;
         }
+        
+        .store--all--products__cards__button__add button {
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            
+            background-color: ${background_primary};
+            
+            opacity: 0;
+            border: 0;
+            visibility: hidden;
+            cursor: pointer;
+            color: white;
+            letter-spacing: .3s;
+            border-radius: 5px;
+
+            transform: translateY(-30px);
+            transition: ${transition};
+
+            &:hover {
+                background-color: #6b41a1;
+            }
+        }
+
+        .store--all--products__cards__content__brand p,
+        .store--all--products__cards__content__name p,
+        .store--all--products__cards__content__price {
+            transition: ${transition};
+        }
 
         .store--all--products__cards__content__brand p {
             font-size: 11pt;
@@ -48,7 +77,7 @@ export const Container = styled.main `
         }
 
         .store--all--products__cards__content__price {
-            border-top: 1px solid black;
+            border-top: 1px solid ${background_second};
 
             p {
                 font-size: 12pt;
@@ -58,6 +87,7 @@ export const Container = styled.main `
         }
         
         .store--all--products__cards__image {
+            padding: 10px;
             width: 100%;
             height: 280px;
             
@@ -69,11 +99,10 @@ export const Container = styled.main `
 
         .store--all--products__cards {
             flex: 1 1 250px;
-            border-radius: 0 0 5px 5px;
+            border-radius: 5px;
             max-width: 290px;
             height: auto;
             
-            background-color: ${background_second};
 
             transition: ${transition};
 
@@ -83,8 +112,18 @@ export const Container = styled.main `
 
             &:hover {
                 transform: scale(1);
-                box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+                box-shadow: 1px 1px 8px rgba(0, 0, 0, .1);
+            }
+
+            &:hover .store--all--products__cards__button__add button {
+                transform: translateY(0px);
+                height: 35px;
+                opacity: .8;
+                visibility: visible;
             }
         }
+
+        
     }
+
 `
