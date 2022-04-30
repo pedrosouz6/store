@@ -1,6 +1,6 @@
 import { Container } from "./style";
 
-export default function StoreAllProductsFilter() {
+export default function StoreFilter() {
     return (
         <Container>
 

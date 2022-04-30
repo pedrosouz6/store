@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+
 import { instance } from "../../../services";
+import StoreFilter from "../Filter";
 
 import { Container } from "./style";
 
@@ -19,8 +21,9 @@ export default function StoreSlipper() {
         <Container>
             <div className="center--store">
                 <div className="store--slipper__container">
-                    <div className="store--slipper__header">
+                    <div className="store--slipper__title__filter">
                         <h1>Chinelo</h1>
+                        <StoreFilter />
                     </div>
                 </div>
 

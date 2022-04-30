@@ -34,7 +34,7 @@ export default function HeaderStore() {
                                 <li><NavLink to='/sneakers' activeClassName='active'>Tênis</NavLink></li>
                                 <li><NavLink to='/slipper' activeClassName='active' >Chinelo</NavLink></li>
                                 <li><NavLink to='/masculine' activeClassName='active' >Masculino</NavLink></li>
-                                <li><NavLink to='/feminine' activeClassName='active' >Feminine</NavLink></li>
+                                <li><NavLink to='/feminine' activeClassName='active' >Feminino</NavLink></li>
                             </ul>
                         </nav>
                     </div>

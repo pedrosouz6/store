@@ -1,6 +1,6 @@
 import { useProducts } from "../../../hooks/Products";
 
-import StoreAllProductsFilter from "./Filter";
+import StoreAllProductsFilter from "../Filter";
 import StoreFooter from "../Footer";
 import { Container } from "./style";
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../../../styles/Default';
+import { Colors } from '../../../styles/Default';
 
 const {
     background_primary,
