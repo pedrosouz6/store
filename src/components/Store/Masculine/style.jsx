@@ -11,7 +11,7 @@ const {
 export const Container = styled.div `
     margin-top: 2rem;
 
-    .store--slipper__title__filter {
+    .store--masculine__title__filter {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -23,18 +23,18 @@ export const Container = styled.div `
         }
     }
 
-    .store--slipper__container__cards {
+    .store--masculine__container__cards {
         width: 100%;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 1.5rem;
         
-        .store--slipper__cards__content {
+        .store--masculine__cards__content {
             padding: 10px;
         }
         
-        .store--slipper__cards__button__add button {
+        .store--masculine__cards__button__add button {
             width: 100%;
             height: 0;
             overflow: hidden;
@@ -57,26 +57,26 @@ export const Container = styled.div `
             }
         }
 
-        .store--slipper__cards__content__brand p,
-        .store--slipper__cards__content__name p,
-        .store--slipper__cards__content__price {
+        .store--masculine__cards__content__brand p,
+        .store--masculine__cards__content__name p,
+        .store--masculine__cards__content__price {
             transition: ${transition};
         }
 
-        .store--slipper__cards__content__brand p {
+        .store--masculine__cards__content__brand p {
             font-size: 11pt;
             font-weight: 700;
             letter-spacing: .3px;
             margin-bottom: 5px;
         }
 
-        .store--slipper__cards__content__name p {
+        .store--masculine__cards__content__name p {
             font-size: 12pt;
             letter-spacing: .3px;
             margin-bottom: 10px;
         }
 
-        .store--slipper__cards__content__price {
+        .store--masculine__cards__content__price {
             border-top: 1px solid ${background_second};
 
             p {
@@ -86,7 +86,7 @@ export const Container = styled.div `
             }
         }
         
-        .store--slipper__cards__image {
+        .store--masculine__cards__image {
             padding: 10px;
             width: 100%;
             height: 280px;
@@ -97,7 +97,7 @@ export const Container = styled.div `
             }
         }
 
-        .store--slipper__cards {
+        .store--masculine__cards {
             flex: 1 1 250px;
             border-radius: 5px;
             max-width: 290px;
@@ -115,7 +115,7 @@ export const Container = styled.div `
                 box-shadow: 1px 1px 8px rgba(0, 0, 0, .1);
             }
 
-            &:hover .store--slipper__cards__button__add button {
+            &:hover .store--masculine__cards__button__add button {
                 transform: translateY(0px);
                 height: 35px;
                 opacity: .8;

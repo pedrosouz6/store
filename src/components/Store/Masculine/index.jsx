@@ -5,45 +5,45 @@ import { Container } from "./style";
 
 export default function StoreSlipper() {
 
-    const [ datasSlipper, setDatasSlipper ] = useState([]);
+    const [ datasMasculine, setDatasMasculine ] = useState([]);
 
     useEffect(() => {
-        instance.get('/get/slipper')
+        instance.get('/get/masculine')
         .then(response => response.data)
-        .then(respost => setDatasSlipper(respost.results));
-    }, []);
+        .then(respost => setDatasMasculine(respost.results));
+    }, [])
 
-    console.log(datasSlipper)
+    console.log(datasMasculine)
 
     return (
         <Container>
             <div className="center--store">
-                <div className="store--slipper__container">
-                    <div className="store--slipper__header">
-                        <h1>Chinelo</h1>
+                <div className="store--masculine__container">
+                    <div className="store--masculine__header">
+                        <h1>Masculine</h1>
                     </div>
                 </div>
 
-                <div className="store--slipper__container__cards">
-                    { datasSlipper.map((item, key) => (
-                        <div className="store--slipper__cards" key={key}>
-                            <div className="store--slipper__cards__image">
+                <div className="store--masculine__container__cards">
+                    { datasMasculine.map((item, key) => (
+                        <div className="store--masculine__cards" key={key}>
+                            <div className="store--masculine__cards__image">
                                 <img src={item.url_product} alt="" />
                             </div>
-                            <div className="store--slipper__cards__content">
-                                <div className="store--slipper__cards__content__brand">
+                            <div className="store--masculine__cards__content">
+                                <div className="store--masculine__cards__content__brand">
                                     <p>{ item.brand_product }</p>
                                 </div>
 
-                                <div className="store--slipper__cards__content__name">
+                                <div className="store--masculine__cards__content__name">
                                     <p>{ item.name_product } - { item.gender_product }</p>
                                 </div>
 
-                                <div className="store--slipper__cards__content__price">
+                                <div className="store--masculine__cards__content__price">
                                     <p>R$ {item.price_product},00</p>
                                 </div>
 
-                                <div className="store--slipper__cards__button__add">
+                                <div className="store--masculine__cards__button__add">
                                     <button>Adicionar a sacola</button>
                                 </div>
                             </div>
