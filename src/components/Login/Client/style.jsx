@@ -18,18 +18,18 @@ export const Container = styled.div `
     align-items: center;
     justify-content: center;
 
-    .register--client__container {
+    .login--client__container {
         flex: 1 1 300px;
         max-width: 400px;
         height: auto;
     }
 
-    .register--client__header h1 {
+    .login--client__header h1 {
         text-align: center;
         margin-bottom: 2rem;
     }
 
-    .register--client__create__account {
+    .login--client__login {
         width: 100%;
 
         h1 {

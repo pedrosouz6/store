@@ -6,7 +6,6 @@ import { Container } from './style';
 
 export default function LoginClient() {
 
-    const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -15,7 +14,6 @@ export default function LoginClient() {
     function FieldValidation(e) {
         e.preventDefault();
         const validate = 
-        name.trim() === '' ||
         email.trim() === '' ||
         password.trim() === '';
 
@@ -29,25 +27,17 @@ export default function LoginClient() {
     return (
         <Container>
             <div className='center--store'>
-                <div className='register--client__container'>
+                <div className='login--client__container'>
 
-                    <div className="register--client__header">
+                    <div className="login--client__header">
                         <h1>Logo</h1>
                     </div>
                     
-                    <div className="register--client__create__account">
-                        <h1>Criar conta</h1>
+                    <div className="login--client__login">
+                        <h1>Login</h1>
                         <form onSubmit={e => FieldValidation(e)}>
 
                             <i><FaUserCircle /></i>
-                            
-                            <input 
-                            type='text' 
-                            placeholder='Nome'
-                            value={name}
-                            onChange={e => setName(e.target.value)}
-                            required
-                            />
 
                             <input 
                             type='email'
