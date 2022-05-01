@@ -13,7 +13,8 @@ import DashboardSales from './pages/Dashboard/Sales/index';
 import DashboardProductsUpdate from './pages/Dashboard/Products/Update/index';
 
 
-import RegisterClient from './components/Register/Client';
+import RegisterClient from './pages/Register/Client/index';
+import LoginClient from './pages/Login/Client/index';
 
 
 import ProviderProducts from './contexts/Products';
@@ -37,6 +38,7 @@ export default function Routess() {
                     <Route path='/dashboard/sales' element={ <DashboardSales /> } />
 
                     <Route path='/register' element={ <RegisterClient /> } /> 
+                    <Route path='/login' element={ <LoginClient /> } /> 
                 </Routes>
             </ProviderProducts>
         </Router>

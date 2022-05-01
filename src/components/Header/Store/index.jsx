@@ -18,7 +18,7 @@ export default function HeaderStore() {
                         <nav>
                             <ul>
                                 <li><StoreSearch /></li>
-                                <li>login/criar conta</li>
+                                <li><Link to='/register'>login/criar conta</Link></li>
                                 <li>
                                     <Link to='/'><i><AiOutlineShoppingCart /></i></Link>
                                 </li>
