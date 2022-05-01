@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { FaUserCircle } from 'react-icons/fa';
+import { instance } from '../../../services/index';
 
 import { Container } from './style';
 
@@ -23,7 +24,16 @@ export default function RegisterClient() {
             return setMessageErro(true);
         }
 
-        return setMessageErro(false);
+        setMessageErro(false);
+        AddClient();
+    }
+
+    function AddClient() {
+        instance.post('/add/client', {
+            name,
+            email,
+            password
+        });
     }
 
     return (

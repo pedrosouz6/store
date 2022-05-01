@@ -57,7 +57,7 @@ export default function LoginClient() {
 
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
 
-                            <input type='submit' value='Criar conta' />
+                            <input type='submit' value='Entrar' />
                         </form>
                     </div>
 
