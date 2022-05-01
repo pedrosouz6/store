@@ -17,6 +17,9 @@ import RegisterClient from './pages/Register/Client/index';
 import LoginClient from './pages/Login/Client/index';
 
 
+import Cart from './pages/Store/Cart/index';
+
+
 import ProviderProducts from './contexts/Products';
 
 export default function Routess() {
@@ -39,6 +42,8 @@ export default function Routess() {
 
                     <Route path='/register' element={ <RegisterClient /> } /> 
                     <Route path='/login' element={ <LoginClient /> } /> 
+
+                    <Route path='/cart' element={ <Cart /> } />  
                 </Routes>
             </ProviderProducts>
         </Router>

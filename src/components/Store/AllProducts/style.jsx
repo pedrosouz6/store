@@ -9,7 +9,6 @@ const {
 } = Colors.light;   
 
 export const Container = styled.main `
-    margin-top: 2rem;
 
     .store--all--products__title__filter {
         display: flex;

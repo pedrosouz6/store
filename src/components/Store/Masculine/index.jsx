@@ -15,9 +15,6 @@ export default function StoreSlipper() {
         .then(respost => setDatasMasculine(respost.results));
     }, []);
 
-    // datasMasculine.sort((one, two) => {
-    //     console.log(one.price_product - two.price_product)
-    // })
 
     return (
         <Container>

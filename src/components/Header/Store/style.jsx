@@ -9,6 +9,7 @@ const {
 export const Header = styled.header `
     width: 100%;
     background-color: ${background_primary};
+    margin-bottom: 2rem;
     
     .header--store__top {
         width: 100%;
@@ -56,7 +57,7 @@ export const Header = styled.header `
         }
         
         li .active {
-            border-bottom: 1px solid white;
+            border-bottom: 2px solid white;
         }
     }
 `

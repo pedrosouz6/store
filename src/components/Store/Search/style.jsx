@@ -7,8 +7,8 @@ const {
 } = Colors.light;
 
 export const Container = styled.form `
-    width: 210px;
-    height: 34px;
+    width: 240px;
+    height: 37px;
     position: relative;
 
     input {

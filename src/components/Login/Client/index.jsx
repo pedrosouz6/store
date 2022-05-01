@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { FaUserCircle } from 'react-icons/fa';
+import { instance } from '../../../services';
 
 import { Container } from './style';
 
@@ -21,7 +22,17 @@ export default function LoginClient() {
             return setMessageErro(true);
         }
 
-        return setMessageErro(false);
+        setMessageErro(false);
+        Login();
+    }
+
+    function Login() {
+        instance.post('/login/client', {
+            email,
+            password
+        })
+        .then(response => response.data)
+        .then(respost => console.log(respost));
     }
 
     return (

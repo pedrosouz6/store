@@ -9,7 +9,6 @@ const {
 } = Colors.light;
 
 export const Container = styled.div `
-    margin-top: 2rem;
 
     .store--slipper__title__filter {
         display: flex;
