@@ -12,6 +12,10 @@ import DashboardProducts from './pages/Dashboard/Products/index';
 import DashboardSales from './pages/Dashboard/Sales/index';
 import DashboardProductsUpdate from './pages/Dashboard/Products/Update/index';
 
+
+import RegisterClient from './components/Register/Client';
+
+
 import ProviderProducts from './contexts/Products';
 
 export default function Routess() {
@@ -31,6 +35,8 @@ export default function Routess() {
                     <Route path='/dashboard/products' element={ <DashboardProducts /> } />
                     <Route path='/dashboard/products/update/:id' element={ <DashboardProductsUpdate /> } />
                     <Route path='/dashboard/sales' element={ <DashboardSales /> } />
+
+                    <Route path='/register' element={ <RegisterClient /> } /> 
                 </Routes>
             </ProviderProducts>
         </Router>

@@ -13,7 +13,11 @@ export default function StoreSlipper() {
         instance.get('/get/masculine')
         .then(response => response.data)
         .then(respost => setDatasMasculine(respost.results));
-    }, [])
+    }, []);
+
+    // datasMasculine.sort((one, two) => {
+    //     console.log(one.price_product - two.price_product)
+    // })
 
     return (
         <Container>
