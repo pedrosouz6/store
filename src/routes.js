@@ -17,7 +17,8 @@ import RegisterClient from './pages/Register/Client/index';
 import LoginClient from './pages/Login/Client/index';
 
 
-import Cart from './pages/Store/Cart/index';
+import StoreCart from './pages/Store/Cart/index';
+import StoreDetails from './pages/Store/Details';
 
 
 import ProviderProducts from './contexts/Products';
@@ -43,7 +44,8 @@ export default function Routess() {
                     <Route path='/register' element={ <RegisterClient /> } /> 
                     <Route path='/login' element={ <LoginClient /> } /> 
 
-                    <Route path='/cart' element={ <Cart /> } />  
+                    <Route path='/cart' element={ <StoreCart /> } />  
+                    <Route path='/details/:id' element={ <StoreDetails /> } />  
                 </Routes>
             </ProviderProducts>
         </Router>
