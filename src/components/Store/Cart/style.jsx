@@ -8,7 +8,6 @@ const {
 } = Colors.light;
 
 export const Container = styled.div `
-
     .store--cart__container {
         display: flex;
         flex-wrap: wrap;

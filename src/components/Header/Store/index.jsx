@@ -1,10 +1,13 @@
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 import StoreSearch from '../../Store/Search';
 import { Header } from './style';
 
 export default function HeaderStore() {
+
+    const navigate = useNavigate();
+
     return (
         <Header>
             <div className="center--store">
@@ -19,7 +22,7 @@ export default function HeaderStore() {
                             <ul>
                                 <li><StoreSearch /></li>
                                 <li><Link to='/register'>login/criar conta</Link></li>
-                                <li>
+                                <li onClick={() => navigate('/cart')}>
                                     <Link to='/'><i><AiOutlineShoppingCart /></i></Link>
                                 </li>
                             </ul>

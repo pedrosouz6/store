@@ -16,6 +16,9 @@ export default function StoreTotal() {
                 <p><strong>Total</strong></p>
                 <p><strong>R$ {8.49300 * 2},00</strong></p>
             </div>
+            <div className="store--total__button__buy">
+                <button>Finalizar compra</button>
+            </div>
         </Container>
     )
 }
