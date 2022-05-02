@@ -18,7 +18,6 @@ export const Container = styled.div `
     .store--cart__products {
         flex: 1 1 300px;
         max-width: 100%;
-        height: 100vh;
 
         h1 {
             font-size: 28px;
