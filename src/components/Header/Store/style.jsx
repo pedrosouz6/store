@@ -4,7 +4,8 @@ import { Colors } from '../../../styles/Default/index';
 
 const { 
     background_primary,
-    background_second
+    background_second,
+    errorColor
 } = Colors.light;
 
 export const Header = styled.header `
@@ -26,6 +27,43 @@ export const Header = styled.header `
 
             li {
                 list-style: none;
+
+                button {
+                    background: none;
+                    position: relative;
+                    padding: 0 15px 0 10px;
+                    height: 35px;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+
+                    i {
+                        padding-top: 4px;
+                        font-size: 22px;
+                        color: #333;
+                    }
+                    
+
+                    span {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+
+                        font-size: 8pt;
+                        letter-spacing: .3px;
+
+                        background-color: #da3a3a;
+                        color: white;
+                    }
+                }
 
                 a {
                     text-decoration: none;

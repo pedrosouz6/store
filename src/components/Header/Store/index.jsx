@@ -1,4 +1,4 @@
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 import StoreSearch from '../../Store/Search';
@@ -7,6 +7,10 @@ import { Header } from './style';
 export default function HeaderStore() {
 
     const navigate = useNavigate();
+
+    function PageCart() {
+        navigate('/cart');
+    }
 
     return (
         <Header>
@@ -22,9 +26,15 @@ export default function HeaderStore() {
                             <ul>
                                 <li><StoreSearch /></li>
                                 <li><Link to='/register'>login/criar conta</Link></li>
-                                <li onClick={() => navigate('/cart')}>
-                                    <Link to='/'><i><AiOutlineShoppingCart /></i></Link>
+                                <li onClick={() => PageCart()}>
+                                    
+                                    <button>
+                                        <i><RiShoppingBag3Fill /></i>
+                                        <span>4</span>
+                                    </button>
+                                    
                                 </li>
+                                {/* Colocar um button com o icone e span(quantidade de pedidos)  */}
                             </ul>
                         </nav>
                     </div>
