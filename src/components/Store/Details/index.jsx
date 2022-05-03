@@ -1,3 +1,5 @@
+import { RiShoppingBag3Fill } from 'react-icons/ri';
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { instance } from '../../../services/index';
@@ -10,6 +12,8 @@ export default function StoreDetails() {
     
     const [ datasDetails, setDatasDetails ] = useState([]);
 
+    const [ products, setProducts ] = useState([]);
+
     useEffect(() => {
         instance.get(`/get/details/${id}`)
         .then(response => response.data)
@@ -20,6 +24,15 @@ export default function StoreDetails() {
             return setDatasDetails(respost.results[0]);
         })
     }, []);
+
+    function AddProduct() {
+        setProducts([...products, datasDetails])
+    }
+
+    const localProducts = JSON.parse(localStorage.getItem('products'));
+    const p = localStorage.getItem('products') != [] ? localProducts : []
+    console.log(p)
+    localStorage.setItem('products', JSON.stringify(products) || localProducts);
 
     return (
         <Container>
@@ -57,8 +70,8 @@ export default function StoreDetails() {
                         </div>
 
                         <div className="store--details__button__add">
-                            <button>
-                                Adicionar ao carrinho
+                            <button onClick={() => AddProduct()}>
+                                <i><RiShoppingBag3Fill /></i>  Adicionar ao carrinho
                             </button>
                         </div>
 

@@ -68,15 +68,28 @@ export const Container = styled.div `
             button {
                 width: 90%;
                 height: 40px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: .7rem;
+
                 background-color: ${background_primary};
                 color: white;
-                font-size: 11pt;
 
+
+                font-size: 11pt;
                 border-radius: 25px;
+
                 border: none;
                 outline: none;
                 cursor: pointer;
                 transition: ${transition};
+
+                i {
+                    padding-top: 3px;
+                    font-size: 20px;
+                }
 
                 &:hover {
                     opacity: .8;
