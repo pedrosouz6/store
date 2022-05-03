@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useProducts } from "../../../hooks/Products";
 
 import StoreAllProductsFilter from "../Filter";
@@ -7,6 +9,11 @@ import { Container } from "./style";
 export default function StoreAllProducts(){
 
     const { datasProducts } = useProducts();
+    const navigate = useNavigate();
+
+    function PageDetails(id) {
+        navigate(`/details/${id}`)
+    }
 
     return (
         <Container>
@@ -21,7 +28,8 @@ export default function StoreAllProducts(){
 
                     <div className="store--all--products__container__cards">
                         { datasProducts.map((item, key) => (
-                            <div className="store--all--products__cards" key={key}>
+                            <div className="store--all--products__cards" key={key} 
+                            onClick={() => PageDetails(item.id_product)}>
                                 <div className="store--all--products__cards__image">
                                     <img src={item.url_product} alt="" />
                                 </div>
@@ -37,12 +45,7 @@ export default function StoreAllProducts(){
                                     <div className="store--all--products__cards__content__price">
                                         <p>R$ {item.price_product},00</p>
                                     </div>
-
-                                    <div className="store--all--products__cards__button__add">
-                                        <button>Adicionar a sacola</button>
-                                    </div>
                                 </div>
-
                             </div>  
                         )) }
                     </div>

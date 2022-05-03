@@ -32,12 +32,12 @@ export default function HeaderStore() {
                     <div className="header--store__bottom">
                         <nav>
                             <ul>
-                                <li><NavLink to='/' activeClassName='active'>Todos os produtos</NavLink></li>
-                                <li><NavLink to='/news' activeClassName='active'>Novidades</NavLink></li>
-                                <li><NavLink to='/sneakers' activeClassName='active'>Tênis</NavLink></li>
-                                <li><NavLink to='/slipper' activeClassName='active' >Chinelo</NavLink></li>
-                                <li><NavLink to='/masculine' activeClassName='active' >Masculino</NavLink></li>
-                                <li><NavLink to='/feminine' activeClassName='active' >Feminino</NavLink></li>
+                                <li><NavLink to='/' activeclassname='active'>Todos os produtos</NavLink></li>
+                                <li><NavLink to='/news' activeclassname='active'>Novidades</NavLink></li>
+                                <li><NavLink to='/sneakers' activeclassname='active'>Tênis</NavLink></li>
+                                <li><NavLink to='/slipper' activeclassname='active' >Chinelo</NavLink></li>
+                                <li><NavLink to='/masculine' activeclassname='active' >Masculino</NavLink></li>
+                                <li><NavLink to='/feminine' activeclassname='active' >Feminino</NavLink></li>
                             </ul>
                         </nav>
                     </div>
