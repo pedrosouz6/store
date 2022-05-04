@@ -3,18 +3,22 @@ import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { instance } from '../../../services/index';
+import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 
 import { Container } from "./style";
 
 export default function StoreDetails() {
 
     const { id } = useParams();
-    
+    const { modifyAmount, setModifyAmount } = useAmountProduct();
+
     const [ datasDetails, setDatasDetails ] = useState([]);
 
     const [ products, setProducts ] = useState([]);
 
     useEffect(() => {
+        setProducts(JSON.parse(localStorage.getItem('products')) || [] );
+
         instance.get(`/get/details/${id}`)
         .then(response => response.data)
         .then(respost => {
@@ -26,13 +30,13 @@ export default function StoreDetails() {
     }, []);
 
     function AddProduct() {
-        setProducts([...products, datasDetails])
+        setModifyAmount(!modifyAmount);
+        setProducts([...products, datasDetails]);
     }
 
-    const localProducts = JSON.parse(localStorage.getItem('products'));
-    const p = localStorage.getItem('products') != [] ? localProducts : []
-    console.log(p)
-    localStorage.setItem('products', JSON.stringify(products) || localProducts);
+    if(products.length > 0) {
+        localStorage.setItem('products', JSON.stringify(products));
+    }
 
     return (
         <Container>

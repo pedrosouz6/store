@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+
+import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 
 import StoreSearch from '../../Store/Search';
 import { Header } from './style';
@@ -7,10 +10,19 @@ import { Header } from './style';
 export default function HeaderStore() {
 
     const navigate = useNavigate();
+    const { modifyAmount } = useAmountProduct();
+
+    const [ amountProducts, setAmountProducts ] = useState([]);
 
     function PageCart() {
         navigate('/cart');
     }
+
+    useEffect(() => {
+        setAmountProducts(JSON.parse(localStorage.getItem('products')));
+    }, [modifyAmount])
+
+    console.log(amountProducts)
 
     return (
         <Header>
@@ -30,7 +42,7 @@ export default function HeaderStore() {
                                     
                                     <button>
                                         <i><RiShoppingBag3Fill /></i>
-                                        <span>4</span>
+                                        <span>{ amountProducts.length }</span>
                                     </button>
                                     
                                 </li>

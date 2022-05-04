@@ -22,31 +22,34 @@ import StoreDetails from './pages/Store/Details';
 
 
 import ProviderProducts from './contexts/Products';
+import ProviderAmountProduct from './contexts/Store/AmountProduct';
 
 export default function Routess() {
     return (
         <Router>
             <ProviderProducts>
-                <Routes>
-                    <Route path='*' element={ <StoreHome /> } />
-                    <Route path='/' element={ <StoreHome /> } />
-                    <Route path='/news' element={ <StoreNews /> } />
-                    <Route path='/sneakers' element={ <StoreSneakers /> } />
-                    <Route path='/slipper' element={ <StoreSlipper /> } />
-                    <Route path='/masculine' element={ <StoreMasculine /> } />
-                    <Route path='/feminine' element={ <StoreFeminine /> } />
+                <ProviderAmountProduct>
+                    <Routes>
+                        <Route path='*' element={ <StoreHome /> } />
+                        <Route path='/' element={ <StoreHome /> } />
+                        <Route path='/news' element={ <StoreNews /> } />
+                        <Route path='/sneakers' element={ <StoreSneakers /> } />
+                        <Route path='/slipper' element={ <StoreSlipper /> } />
+                        <Route path='/masculine' element={ <StoreMasculine /> } />
+                        <Route path='/feminine' element={ <StoreFeminine /> } />
 
 
-                    <Route path='/dashboard/products' element={ <DashboardProducts /> } />
-                    <Route path='/dashboard/products/update/:id' element={ <DashboardProductsUpdate /> } />
-                    <Route path='/dashboard/sales' element={ <DashboardSales /> } />
+                        <Route path='/dashboard/products' element={ <DashboardProducts /> } />
+                        <Route path='/dashboard/products/update/:id' element={ <DashboardProductsUpdate /> } />
+                        <Route path='/dashboard/sales' element={ <DashboardSales /> } />
 
-                    <Route path='/register' element={ <RegisterClient /> } /> 
-                    <Route path='/login' element={ <LoginClient /> } /> 
+                        <Route path='/register' element={ <RegisterClient /> } /> 
+                        <Route path='/login' element={ <LoginClient /> } /> 
 
-                    <Route path='/cart' element={ <StoreCart /> } />  
-                    <Route path='/details/:id' element={ <StoreDetails /> } />  
-                </Routes>
+                        <Route path='/cart' element={ <StoreCart /> } />  
+                        <Route path='/details/:id' element={ <StoreDetails /> } />  
+                    </Routes>
+                </ProviderAmountProduct>
             </ProviderProducts>
         </Router>
     )
