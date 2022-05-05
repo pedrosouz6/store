@@ -9,4 +9,4 @@ export const Colors = {
         errorColor: '#f02323',
         successColor: '#37b64d'
     }
-}
+}   

@@ -22,8 +22,6 @@ export default function HeaderStore() {
         setAmountProducts(JSON.parse(localStorage.getItem('products')));
     }, [modifyAmount])
 
-    console.log(amountProducts)
-
     return (
         <Header>
             <div className="center--store">

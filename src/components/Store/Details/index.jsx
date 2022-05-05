@@ -1,7 +1,7 @@
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { instance } from '../../../services/index';
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 
@@ -10,6 +10,8 @@ import { Container } from "./style";
 export default function StoreDetails() {
 
     const { id } = useParams();
+    const navigate = useNavigate();
+
     const { modifyAmount, setModifyAmount } = useAmountProduct();
 
     const [ datasDetails, setDatasDetails ] = useState([]);
