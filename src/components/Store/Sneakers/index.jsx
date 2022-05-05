@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { instance } from "../../../services";
 import StoreFilter from "../Filter";
@@ -9,11 +10,17 @@ export default function StoreSneakers() {
 
     const [ datasSneakers, setDatasSneakers ] = useState([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         instance.get('/get/sneakers')
         .then(response => response.data)
         .then(respost => setDatasSneakers(respost.results));
     }, []);
+
+    function PageDetails(id) {
+        navigate(`/details/${id}`)
+    }
 
     return (
         <Container>
@@ -26,7 +33,7 @@ export default function StoreSneakers() {
 
                     <div className="store--sneakers__container__cards">
                         { datasSneakers.map((item, key) => (
-                            <div className="store--sneakers__cards" key={key}>
+                            <div className="store--sneakers__cards" key={key} onClick={() => PageDetails(item.id_product)}>
                                 <div className="store--sneakers__cards__image">
                                     <img src={item.url_product} alt="" />
                                 </div>
@@ -42,12 +49,7 @@ export default function StoreSneakers() {
                                     <div className="store--sneakers__cards__content__price">
                                         <p>R$ {item.price_product},00</p>
                                     </div>
-
-                                    <div className="store--sneakers__cards__button__add">
-                                        <button>Adicionar a sacola</button>
-                                    </div>
                                 </div>
-
                             </div>  
                         )) }
                     </div>

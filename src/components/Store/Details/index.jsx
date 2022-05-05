@@ -1,7 +1,7 @@
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { instance } from '../../../services/index';
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 
@@ -10,7 +10,6 @@ import { Container } from "./style";
 export default function StoreDetails() {
 
     const { id } = useParams();
-    const navigate = useNavigate();
 
     const { modifyAmount, setModifyAmount } = useAmountProduct();
 
@@ -33,7 +32,13 @@ export default function StoreDetails() {
 
     function AddProduct() {
         setModifyAmount(!modifyAmount);
-        setProducts([...products, datasDetails]);
+        const validateProduct = products.filter(item => item.id_product == id);
+        
+        if(validateProduct.length == 0) {
+            return setProducts([...products, datasDetails]);
+        }
+
+        console.log('produto ja adicionado');
     }
 
     if(products.length > 0) {

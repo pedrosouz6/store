@@ -36,6 +36,10 @@ export const Container = styled.div `
         margin-bottom: 2rem;
     }
 
+    .store--total__total__delivery.none {
+        opacity: .3;
+    }
+
     .store--total__total__final {
         display: flex;
         align-content: center;

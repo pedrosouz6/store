@@ -14,38 +14,29 @@ export default function StoreCart() {
 
     const [ productsCart, setProductsCart ] = useState([]);
 
-    const [ priceProducts, setPriceProducts ] = useState(null);
+    const [ priceProducts, setPriceProducts ] = useState(0);
 
     useEffect(() => {
         const products = JSON.parse(localStorage.getItem('products')) || [];
 
         if(products.length > 0) {
-            const getPrice = productsCart.map((item) => {
-                const numbers = item.price_product;
-                return numbers;
-            })
+            let priceTotal = 0;
 
-            const totalPrice = getPrice.reduce((prev, acc) => prev + acc, 0);
-            setPriceProducts(totalPrice);
+            for(let i = 0; i < products.length; i++){
+                priceTotal += products[i].price_product;
+            }
+
+            setPriceProducts(priceTotal);
         }
 
         setProductsCart(products);
     }, [modifyAmount]);
 
-    console.log(priceProducts);
+
 
     function DeleteProductCart(id) {
-        // const productsDelete = productsCart.filter(item => item.id_product !== id);
-        // localStorage.setItem('products', JSON.stringify(productsDelete));
-
-        const totalPrice = productsCart.map((previousValue) => {
-            const numbers = previousValue.price_product;
-            return numbers;
-        })
-
-        console.log(totalPrice.reduce((prev, acc) => prev + acc))
-
-        // const totalPrice = productsCart.reduce((previousValue, currentValue) => previousValue.price_product + currentValue.price_product, 0);
+        const productsDelete = productsCart.filter(item => item.id_product !== id);
+        localStorage.setItem('products', JSON.stringify(productsDelete));
 
         setModifyAmount(!modifyAmount);
     }
@@ -97,7 +88,7 @@ export default function StoreCart() {
                             )) }
                         </div>
                     </div>
-                    <StoreTotal />
+                    <StoreTotal priceProducts={priceProducts} />
                 </div>
             </div>
         </Container>

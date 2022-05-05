@@ -32,35 +32,6 @@ export const Container = styled.div `
         .store--masculine__cards__content {
             padding: 10px;
         }
-        
-        .store--masculine__cards__button__add button {
-            width: 100%;
-            height: 0;
-            overflow: hidden;
-            
-            background-color: ${background_primary};
-            
-            opacity: 0;
-            border: 0;
-            visibility: hidden;
-            cursor: pointer;
-            color: white;
-            letter-spacing: .3s;
-            border-radius: 5px;
-
-            transform: translateY(-30px);
-            transition: ${transition};
-
-            &:hover {
-                background-color: #6b41a1;
-            }
-        }
-
-        .store--masculine__cards__content__brand p,
-        .store--masculine__cards__content__name p,
-        .store--masculine__cards__content__price {
-            transition: ${transition};
-        }
 
         .store--masculine__cards__content__brand p {
             font-size: 11pt;
@@ -111,13 +82,6 @@ export const Container = styled.div `
             &:hover {
                 transform: scale(1);
                 box-shadow: 1px 1px 8px rgba(0, 0, 0, .1);
-            }
-
-            &:hover .store--masculine__cards__button__add button {
-                transform: translateY(0px);
-                height: 35px;
-                opacity: .8;
-                visibility: visible;
             }
         }
     }

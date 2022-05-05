@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { instance } from "../../../services";
 import StoreFilter from "../Filter";
@@ -9,12 +10,18 @@ export default function StoreSlipper() {
 
     const [ datasMasculine, setDatasMasculine ] = useState([]);
 
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         instance.get('/get/masculine')
         .then(response => response.data)
         .then(respost => setDatasMasculine(respost.results));
     }, []);
 
+    function PageDetails(id) {
+        navigate(`/details/${id}`);
+    }
 
     return (
         <Container>
@@ -28,7 +35,7 @@ export default function StoreSlipper() {
 
                 <div className="store--masculine__container__cards">
                     { datasMasculine.map((item, key) => (
-                        <div className="store--masculine__cards" key={key}>
+                        <div className="store--masculine__cards" key={key} onClick={() => PageDetails(item.id_product)}>
                             <div className="store--masculine__cards__image">
                                 <img src={item.url_product} alt="" />
                             </div>
@@ -44,12 +51,7 @@ export default function StoreSlipper() {
                                 <div className="store--masculine__cards__content__price">
                                     <p>R$ {item.price_product},00</p>
                                 </div>
-
-                                <div className="store--masculine__cards__button__add">
-                                    <button>Adicionar a sacola</button>
-                                </div>
                             </div>
-
                         </div>  
                     )) }
                 </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { instance } from "../../../services";
 import StoreFilter from "../Filter";
@@ -9,13 +10,17 @@ export default function StoreSlipper() {
 
     const [ datasSlipper, setDatasSlipper ] = useState([]);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         instance.get('/get/slipper')
         .then(response => response.data)
         .then(respost => setDatasSlipper(respost.results));
     }, []);
 
-    console.log(datasSlipper)
+    function PageDetails(id) {
+        navigate(`/details/${id}`)
+    }
 
     return (
         <Container>
@@ -29,7 +34,7 @@ export default function StoreSlipper() {
 
                 <div className="store--slipper__container__cards">
                     { datasSlipper.map((item, key) => (
-                        <div className="store--slipper__cards" key={key}>
+                        <div className="store--slipper__cards" key={key} onClick={() => PageDetails(item.id_product)}>
                             <div className="store--slipper__cards__image">
                                 <img src={item.url_product} alt="" />
                             </div>
@@ -45,12 +50,7 @@ export default function StoreSlipper() {
                                 <div className="store--slipper__cards__content__price">
                                     <p>R$ {item.price_product},00</p>
                                 </div>
-
-                                <div className="store--slipper__cards__button__add">
-                                    <button>Adicionar a sacola</button>
-                                </div>
                             </div>
-
                         </div>  
                     )) }
                 </div>
