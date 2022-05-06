@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { RiShoppingBag3Fill } from 'react-icons/ri';
+import { IoMdClose } from 'react-icons/io';
 import { AiOutlineMenu } from 'react-icons/ai';
 
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
@@ -15,6 +16,7 @@ export default function HeaderStore() {
     const { modifyAmount } = useAmountProduct();
 
     const [ amountProducts, setAmountProducts ] = useState([]);
+    const [ menuResponsive, setMenuResponsive ] = useState(false);
 
     function PageCart() {
         navigate('/cart');
@@ -47,15 +49,15 @@ export default function HeaderStore() {
                                 </li>
 
                                 <li id='menu__responsive'>
-                                    <button>
-                                        <i><AiOutlineMenu /></i>
+                                    <button onClick={() => setMenuResponsive(!menuResponsive)}>
+                                        { menuResponsive ? <i><IoMdClose /></i> : <i><AiOutlineMenu /></i> }
                                     </button>
                                 </li>
                             </ul>
                         </nav>
                     </div>
 
-                    <div className="header--store__bottom">
+                    <div className={menuResponsive ? "header--store__bottom active" : "header--store__bottom"}>
                         <nav>
                             <ul>
                                 <li><NavLink to='/' activeclassname='active'>Todos os produtos</NavLink></li>

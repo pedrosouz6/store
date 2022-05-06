@@ -5,7 +5,7 @@ import { Colors } from '../../../styles/Default/index';
 const { 
     background_primary,
     background_second,
-    errorColor
+    transition
 } = Colors.light;
 
 export const Header = styled.header `
@@ -133,27 +133,39 @@ export const Header = styled.header `
                 border: none;
                 outline: none;
                 cursor: pointer;
+                position: relative;
+                z-index: 99999;
             }
         }
 
         .header--store__bottom {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            z-index: 999;
+            background-color: red;
+            width: 300px;
+            height: 100vh;
+
+            opacity: 0;
+
+            transition: ${transition};
+        }
+
+        .header--store__bottom.active {
+            opacity: 1;
+            right: 0px;
         }
 
         .header--store__bottom nav ul {
-            position: fixed;
-            top: 0;
-            right: 0;
-            z-index: 9999999;
-            background-color: red;
-            width: 200px;
-            height: 100vh;
             list-style: none;
             margin-top: 0;
 
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: space-between;
+            display: block;
+
+            li + li {
+                margin-top: 1.5rem;
+            }
 
             li a {
                 text-decoration: none;
