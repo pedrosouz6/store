@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 import { RiShoppingBag3Fill } from 'react-icons/ri';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 
@@ -19,7 +21,7 @@ export default function HeaderStore() {
     }
 
     useEffect(() => {
-        setAmountProducts(JSON.parse(localStorage.getItem('products')));
+        setAmountProducts(JSON.parse(localStorage.getItem('products')) || []);
     }, [modifyAmount])
 
     return (
@@ -35,8 +37,7 @@ export default function HeaderStore() {
                         <nav>
                             <ul>
                                 <li><StoreSearch /></li>
-                                <li><Link to='/register'>login/criar conta</Link></li>
-                                <li onClick={() => PageCart()}>
+                                <li onClick={() => PageCart()} id='amount__products'>
                                     
                                     <button>
                                         <i><RiShoppingBag3Fill /></i>
@@ -44,7 +45,12 @@ export default function HeaderStore() {
                                     </button>
                                     
                                 </li>
-                                {/* Colocar um button com o icone e span(quantidade de pedidos)  */}
+
+                                <li id='menu__responsive'>
+                                    <button>
+                                        <i><AiOutlineMenu /></i>
+                                    </button>
+                                </li>
                             </ul>
                         </nav>
                     </div>

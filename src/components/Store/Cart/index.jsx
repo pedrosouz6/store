@@ -19,17 +19,20 @@ export default function StoreCart() {
     useEffect(() => {
         const products = JSON.parse(localStorage.getItem('products')) || [];
 
-        if(products.length > 0) {
+        if(products) {
+
+            if(products.length > 0) {
             let priceTotal = 0;
-
-            for(let i = 0; i < products.length; i++){
-                priceTotal += products[i].price_product;
+    
+                for(let i = 0; i < products.length; i++){
+                    priceTotal += products[i].price_product;
+                }
+                setPriceProducts(priceTotal);
             }
-
-            setPriceProducts(priceTotal);
+            setProductsCart(products);
         }
 
-        setProductsCart(products);
+
     }, [modifyAmount]);
 
 

@@ -1,8 +1,16 @@
+import { useState } from 'react';
+
+import ModalThanks from '../Modal/Thanks/index';
+
 import { Container } from "./style";
 
 export default function StoreTotal({ priceProducts }) {
+
+    const [ thanks, setThanks ] = useState(false);
+
     return (
         <Container>
+            { thanks && <ModalThanks thanks={thanks} setThanks={setThanks} /> }
             <h2>Resumo do pedido</h2>
             <div className="store--total__total__products">
                 <p>Total de produtos</p>
@@ -17,7 +25,7 @@ export default function StoreTotal({ priceProducts }) {
                 <p><strong>R$ {priceProducts > 900 ? priceProducts : priceProducts + 45},00</strong></p>
             </div>
             <div className="store--total__button__buy">
-                <button>Finalizar compra</button>
+                <button onClick={() => setThanks(!thanks)}>Finalizar compra</button>
             </div>
         </Container>
     )
