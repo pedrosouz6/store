@@ -43,7 +43,7 @@ export default function HeaderStore() {
                                     
                                     <button>
                                         <i><RiShoppingBag3Fill /></i>
-                                        <span>{ amountProducts.length }</span>
+                                        { amountProducts.length !== 0 && <span>{ amountProducts.length }</span> }
                                     </button>
                                     
                                 </li>

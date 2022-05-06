@@ -86,8 +86,9 @@ export const Header = styled.header `
     }
 
     #menu__responsive {
+        display: none;
+        
         button {
-            display: none;
             padding: 6px 2px 0 2px;
             background: none;
             border: none;
@@ -136,14 +137,17 @@ export const Header = styled.header `
 
     @media (max-width: 700px) {
         #menu__responsive {
+            display: block;
+
             button {
-                display: block;
                 padding: 6px 2px 0 2px;
                 background: none;
                 border: none;
                 outline: none;
                 cursor: pointer;
-                position: relative;
+                position: fixed;
+                top: 21px;
+                right: 10px;
                 z-index: 99999;
             }
         }
