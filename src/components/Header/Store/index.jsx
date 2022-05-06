@@ -38,7 +38,7 @@ export default function HeaderStore() {
 
                         <nav>
                             <ul>
-                                <li><StoreSearch /></li>
+                                <li id='search'><StoreSearch /></li>
                                 <li onClick={() => PageCart()} id='amount__products'>
                                     
                                     <button>
@@ -60,6 +60,7 @@ export default function HeaderStore() {
                     <div className={menuResponsive ? "header--store__bottom active" : "header--store__bottom"}>
                         <nav>
                             <ul>
+                                <li id='search'><StoreSearch /></li>
                                 <li><NavLink to='/' activeclassname='active'>Todos os produtos</NavLink></li>
                                 <li><NavLink to='/news' activeclassname='active'>Novidades</NavLink></li>
                                 <li><NavLink to='/sneakers' activeclassname='active'>Tênis</NavLink></li>

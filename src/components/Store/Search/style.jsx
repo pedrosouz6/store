@@ -7,7 +7,7 @@ const {
 } = Colors.light;
 
 export const Container = styled.form `
-    width: 240px;
+    width: 100%;
     height: 37px;
     position: relative;
 
