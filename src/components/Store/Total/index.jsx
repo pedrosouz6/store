@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 
 import ModalThanks from '../Modal/Thanks/index';
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
+import { instance } from '../../../services/index';
 
 import { Container } from "./style";
 
-export default function StoreTotal({ priceProducts }) {
+export default function StoreTotal({ priceProducts, productsCart }) {
+    console.log(productsCart)
 
     const { modifyAmount } = useAmountProduct();
     const [ empty, setEmpty ] = useState(true);
@@ -20,7 +22,15 @@ export default function StoreTotal({ priceProducts }) {
         return setEmpty(true);
     }, [modifyAmount]);
 
+    const id_products = productsCart.map(item => item.id_product);
+    console.log(id_products)
+
+
     function ModalThanksValidate() {
+        instance.post('/buy/product', {
+            id_client: 1, 
+            id_products
+        });
         if(empty) {
             setThanks(!thanks);
         }

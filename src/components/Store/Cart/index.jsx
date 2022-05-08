@@ -74,7 +74,7 @@ export default function StoreCart() {
                             )) }
                         </div>
                     </div>
-                    <StoreTotal priceProducts={priceProducts} />
+                    <StoreTotal priceProducts={priceProducts} productsCart={productsCart} />
                 </div>
             </div>
         </Container>
