@@ -12,44 +12,24 @@ export default function StoreCart() {
     const { modifyAmount, setModifyAmount } = useAmountProduct();
 
     const [ productsCart, setProductsCart ] = useState([]);
-    //const [ allPrice, setAllPrice ] = useState([]);
     const [ priceProducts, setPriceProducts ] = useState(0);
 
     useEffect(() => {
         const products = JSON.parse(localStorage.getItem('products')) || [];
         setProductsCart(products);
-        const allPrice = JSON.parse(localStorage.getItem('allPrice')) || [];
 
-        if(allPrice) {
+        if(products.length > 0) {
+            let totalPrice = 0;
 
-            if(allPrice.length > 0) {
-
-                const totalPrice = allPrice.reduce((prev, acc) => prev + acc);
-                setPriceProducts(totalPrice)
-            // let priceTotal = 0;
-    
-            //     for(let i = 0; i < allPrice.length; i++){
-            //         console.log(allPrice)
-            //     }
-
-            //     setPriceProducts(priceTotal);
+            for(let i = 0; i < products.length; i++) {
+                totalPrice += products[i].price_product;
             }
-        }
 
+            setPriceProducts(totalPrice);
+        }
 
     }, [modifyAmount]);
 
-    function NewAmountProduct(amount, id) {
-        const products = JSON.parse(localStorage.getItem('products'));
-        const random = products.map(item => 
-            item.id_product == id && item.price_product * amount
-        );
-        
-        localStorage.setItem('allPrice', JSON.stringify(random));
-        setModifyAmount(!modifyAmount);
-    }
-
-    console.log(priceProducts)
 
     function DeleteProductCart(id) {
         const productsDelete = productsCart.filter(item => item.id_product !== id);
@@ -64,15 +44,13 @@ export default function StoreCart() {
                 <div className="store--cart__container">
                     <div className="store--cart__products">
                         <h1>Seu carrinho</h1>
-                        <p>Total ({ 
-                            productsCart.length === 1 ? 
-                            `${productsCart.length} produtos` :
-                            `${productsCart.length} produtos` }) R$ {priceProducts},00
-                        </p>
-
+                        { productsCart.length > 0 &&
+                        <p>Total de {productsCart.length} produto(s) e R$ {priceProducts},00 </p> }
+                        
                         <div className="store--cart__products__cards">
                             { productsCart.length === 0 ? 
-                            'Seu carrinho está vazio' :
+                            <p id='message--cart'>Seu carrinho está vazio.</p> :
+
                             productsCart.map((item, key) => (
                                 <div className="store--cart__card" key={key}>
                                     <div className="store--cart__img">
@@ -89,15 +67,6 @@ export default function StoreCart() {
                                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio consequatur expedita nulla exercitationem voluptates, sint quaerat deleniti, velit, nostrum dolorum sequi aperiam quos quas harum sunt soluta tempora iusto accusantium.</p>
                                         </div>
                                         <div className="store--cart__price">
-                                            <select onChange={(e => NewAmountProduct(e.target.value, item.id_product))}>
-                                                <option value={1}>1</option>
-                                                <option value={2}>2</option>
-                                                <option value={3}>3</option>
-                                                <option value={4}>4</option>
-                                                <option value={5}>5</option>
-                                                <option value={6}>6</option>
-                                            </select>
-                                            {/* fazer o state para multiplicar a quant. de produtos */}
                                             <span>R$ {item.price_product},00</span>
                                         </div>
                                     </div>

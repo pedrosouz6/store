@@ -14,6 +14,10 @@ export const Container = styled.div `
         gap: 2rem;
     }
 
+    #message--cart {
+        font-size: 20px;
+    }
+
     .store--cart__products {
         flex: 1 1 300px;
         max-width: 100%;
@@ -70,7 +74,7 @@ export const Container = styled.div `
     
     img {
         border-radius: 8px 0 0 8px;
-        width: 230px;
+        width: 210px;
         height: 100%;
     }
 

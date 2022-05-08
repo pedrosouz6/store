@@ -1,12 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ModalThanks from '../Modal/Thanks/index';
+import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 
 import { Container } from "./style";
 
 export default function StoreTotal({ priceProducts }) {
 
+    const { modifyAmount } = useAmountProduct();
+    const [ empty, setEmpty ] = useState(true);
     const [ thanks, setThanks ] = useState(false);
+
+    useEffect(() => {
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        if(products.length < 1) {
+            return setEmpty(false);
+        }
+
+        return setEmpty(true);
+    }, [modifyAmount]);
+
+    function ModalThanksValidate() {
+        if(empty) {
+            setThanks(!thanks);
+        }
+    }
 
     return (
         <Container>
@@ -14,7 +32,7 @@ export default function StoreTotal({ priceProducts }) {
             <h2>Resumo do pedido</h2>
             <div className="store--total__total__products">
                 <p>Total de produtos</p>
-                <p>R$ { priceProducts },00</p>
+                <p>R$ { empty ? priceProducts : '0' },00</p>
             </div>
             <div className={priceProducts > 900 ? "store--total__total__delivery none" : "store--total__total__delivery"}>
                 <p>Entrega</p>
@@ -22,10 +40,10 @@ export default function StoreTotal({ priceProducts }) {
             </div>
             <div className="store--total__total__final">
                 <p><strong>Total</strong></p>
-                <p><strong>R$ {priceProducts > 900 ? priceProducts : priceProducts + 45},00</strong></p>
+                <p><strong>R$ { empty ? priceProducts > 900 ? priceProducts : priceProducts + 45 : '0'},00</strong></p>
             </div>
             <div className="store--total__button__buy">
-                <button onClick={() => setThanks(!thanks)}>Finalizar compra</button>
+                <button onClick={() => ModalThanksValidate()}>Finalizar compra</button>
             </div>
         </Container>
     )
