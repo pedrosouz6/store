@@ -1,6 +1,11 @@
-import { Container } from "./style"
+import { Container } from "./style";
+
+import { useSales } from '../../../../hooks/Sales/index';
 
 export default function DashboardSalesClient() {
+
+    const { purchases } = useSales();
+
     return (  
         <Container>
             <div className="center--dashboard">
@@ -12,33 +17,28 @@ export default function DashboardSalesClient() {
                             <tr>
                                 <td>Comprador</td>
                                 <td>Nome do produto</td>
+                                <td>Marca do produto</td>
                                 <td>Preço</td>
+                                <td>Imagem do produto</td>
                                 <td>Data da compra</td>
-                                <td>Quantidade</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Pedro Souza</td>
-                                <td>MaacBook Pro</td>
-                                <td>R$ 3.589,00</td>
-                                <td>25/04/2022</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Pedro Souza</td>
-                                <td>MaacBook Pro</td>
-                                <td>R$ 3.589,00</td>
-                                <td>25/04/2022</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Pedro Souza</td>
-                                <td>MaacBook Pro</td>
-                                <td>R$ 3.589,00</td>
-                                <td>25/04/2022</td>
-                                <td>1</td>
-                            </tr>
+
+                            {
+                                purchases.length > 0 ? 
+                                    purchases.map((item, key) => (
+                                        <tr key={key}>
+                                            <td>{ item.name_client }</td>
+                                            <td>{ item.name_product }</td>
+                                            <td>{ item.brand_product }</td>
+                                            <td>R$ { item.price_product },00</td>
+                                            <td className="imagem_td"><img src={ item.url_product } alt="Imagem do produto" /></td>
+                                            <td className="date__purchase">{ new Date(item.date_buy).toLocaleDateString() }</td>
+                                        </tr>
+                                    ))
+                                : 'Nenhum produto foi comprado'
+                            }
                         </tbody>
                     </table> 
                 </div>

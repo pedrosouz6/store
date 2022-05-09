@@ -23,8 +23,6 @@ export default function StoreTotal({ priceProducts, productsCart }) {
     }, [modifyAmount]);
 
     const id_products = productsCart.map(item => item.id_product);
-    console.log(id_products)
-
 
     function ModalThanksValidate() {
         instance.post('/buy/product', {

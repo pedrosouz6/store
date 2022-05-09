@@ -31,12 +31,26 @@ export const Container = styled.div `
             }
         }
 
+        td img {
+            margin: auto;
+            width: 90px;
+        }
+
         tbody td {
             padding: 10px 7px;
         }
 
         tr:nth-child(even) {
             background-color: ${background_second};
+        }
+
+        .date__purchase {
+            text-align: center;
+        }
+
+        .imagem_td {
+            text-align: center;
+            width: 170px;
         }
     }
 `
