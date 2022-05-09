@@ -4,6 +4,7 @@ import { Colors } from '../../../styles/Default/index';
 
 const {
     background_primary,
+    background_second,
     background_thirdy,
     transition,
     selected
@@ -40,12 +41,16 @@ export const Aside = styled.aside `
 
     nav ul li {
         list-style: none;
+
+        a.active {
+            color: ${background_primary};
+            background-color: white;
+        }
         
         a {
             width: 100%;
             height: 46px;
-            background-color: ${background_primary};
-            color: ${background_thirdy};
+            color: white;
 
             display: flex;
             align-items: center;
@@ -54,9 +59,12 @@ export const Aside = styled.aside `
             padding: 0 15px;
             text-decoration: none;
             transition: ${transition};
-
+            
+            border-radius: 25px 0 0 25px;
+            
             &:hover {
-                background-color: ${selected};
+                color: ${background_primary};
+                background-color: white;
             }
 
             span {

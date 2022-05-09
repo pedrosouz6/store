@@ -26,10 +26,6 @@ export default function DashboardProductsPreview({ urlImage, brandProduct, nameP
                     <div className="dashboard--products__card__price__product">
                         { priceProduct === '' ? 'Preço' : 'R$ ' + priceProduct+',00' }
                     </div>
-                    
-                    <div className="dashboard--products__card__btn">
-                        <button>Ver mais</button>
-                    </div>
                 </div>
             </div>
         </Container>

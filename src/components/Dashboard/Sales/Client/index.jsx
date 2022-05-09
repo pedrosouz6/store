@@ -24,7 +24,6 @@ export default function DashboardSalesClient() {
                             </tr>
                         </thead>
                         <tbody>
-
                             {
                                 purchases.length > 0 ? 
                                     purchases.map((item, key) => (
@@ -33,7 +32,9 @@ export default function DashboardSalesClient() {
                                             <td>{ item.name_product }</td>
                                             <td>{ item.brand_product }</td>
                                             <td>R$ { item.price_product },00</td>
-                                            <td className="imagem_td"><img src={ item.url_product } alt="Imagem do produto" /></td>
+                                            <td className="imagem_td">
+                                                <img src={ item.url_product } alt="Imagem do produto" />
+                                            </td>
                                             <td className="date__purchase">{ new Date(item.date_buy).toLocaleDateString() }</td>
                                         </tr>
                                     ))

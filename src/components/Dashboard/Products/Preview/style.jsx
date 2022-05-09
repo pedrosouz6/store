@@ -4,6 +4,7 @@ import { Colors } from '../../../../styles/Default/index';
 
 const {
     background_primary,
+    background_second,
     background_thirdy
 } = Colors.light;
 
@@ -49,22 +50,8 @@ export const Container = styled.article `
 
     .dashboard--products__card__price__product {
         margin: .8rem 0;
-        font-size: 13pt;
-    }
-
-    .dashboard--products__card__btn {
         border-top: 1px solid ${background_thirdy};
-        padding: .5rem 0;
-        display: flex;
-        justify-content: end;
-
-        button {
-            border: none;
-            background-color: ${background_primary};
-            color: white;
-            padding: 6px 15px;
-            border-radius: 3px;
-            cursor: pointer;
-        }
+        font-size: 13pt;
+        padding: .6rem 0;
     }
 `

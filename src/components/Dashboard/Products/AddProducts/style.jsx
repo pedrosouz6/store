@@ -39,7 +39,6 @@ export const Container = styled.div `
                 display: flex;
                 gap: 1rem;
                 margin-bottom: 1rem;
-
             }
 
             input, 
@@ -72,12 +71,13 @@ export const Container = styled.div `
             }
 
             .dashboard--products__button {
-                width: 140px !important;
+                width: 100%;
                 display: flex;
                 justify-content: end;
                 margin-top: 1.3rem;
 
                 input {
+                    max-width: 130px !important;
                     border: none;
                     background-color: ${background_primary};
                     color: white;

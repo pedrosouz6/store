@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoMdClose } from 'react-icons/io';
@@ -33,7 +33,7 @@ export default function HeaderStore() {
 
                     <div className="header--store__top">
                         <div className="header--store__logo">
-                            <h1>Logo</h1>   
+                            <Link to='/'>loja/<span>dev.com</span></Link>
                         </div>
 
                         <nav>

@@ -17,8 +17,20 @@ export const Header = styled.header `
         width: 100%;
         height: 80px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         align-items: center;
+
+        .header--store__logo a {
+            text-decoration: none;
+            font-size: 24px;
+            color: #333;
+            transition: ${transition};
+
+            &:hover span {
+                color: ${background_primary};
+            }
+        }
 
         nav ul {
             display: flex;
@@ -131,7 +143,7 @@ export const Header = styled.header `
         }
         
         li .active {
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid ${background_primary};
         }
     }
 
@@ -202,10 +214,6 @@ export const Header = styled.header `
                 text-decoration: none;
                 color: black;
                 padding: 5px 0 2px 0;
-            }
-            
-            li .active {
-                border-bottom: 2px solid white;
             }
         }
     }

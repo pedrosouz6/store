@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { MdAddShoppingCart } from 'react-icons/md';
@@ -39,22 +39,17 @@ export default function AsideDashboard() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to='/dashboard/products'>
+                            <NavLink to='/dashboard/products' activeclassname='active'>
                                 <i><MdAddShoppingCart /></i>
                                 <span className={asideClose ? 'removeNames' : ''}>Produtos</span>
-                            </Link>
+                            </NavLink>
                         </li>
+                        
                         <li>
-                            <Link to='/dashboard'>
-                                <i><AiOutlineShoppingCart /></i>
-                                <span className={asideClose ? 'removeNames' : ''}>Pedidos</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/dashboard/sales'>
+                            <NavLink to='/dashboard/sales' activeclassname='active'>
                                 <i><MdOutlineAttachMoney /></i>
                                 <span className={asideClose ? 'removeNames' : ''}>Vendas</span>
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>

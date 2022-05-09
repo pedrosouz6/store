@@ -11,7 +11,7 @@ const {
 export const Header = styled.header `
     width: 100%;
     height: 55px;
-    background-color: ${background_primary};
+    background-color: ${background_second};
     border-left: 2px solid ${background_thirdy};
     padding: 0 20px;
     margin-bottom: 1.5rem;
@@ -31,25 +31,29 @@ export const Header = styled.header `
         gap: .4rem;
 
         span {
-            color: ${background_thirdy};
+            color: black;
 
         }
 
         i {
-            color: ${background_thirdy};
+            color: black;
         }
 
         .img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background-color: ${background_thirdy};
+            background-color: black;
         }
     }
     
-    h1 {
-        color: ${background_thirdy};
-        letter-spacing: .3px;
-        font-size: 16pt;
+    a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #333;
+
+        &:hover span {
+            color: ${background_primary};
+        }
     }
 `
