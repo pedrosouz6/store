@@ -140,6 +140,12 @@ export const Header = styled.header `
             text-decoration: none;
             color: black;
             padding: 5px 0 2px 0;
+
+            transition: ease-in-out .1s;
+
+            &:hover {
+                border-bottom: 2px solid ${background_primary};
+            }
         }
         
         li .active {
