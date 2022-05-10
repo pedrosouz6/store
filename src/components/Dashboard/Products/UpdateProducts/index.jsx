@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { instance } from '../../../../services/index';
+import Title from '../../Title';
 import { useProducts } from '../../../../hooks/Products';
 
 import PopUp from '../../../PopUp/Message';
@@ -112,7 +113,7 @@ export default function DashboardProductsUpdateProducts() {
                     <div className='dashboard--products__update__products'>
                         <div className="dashboard--products__form__products">
 
-                            <h2>Atualizar produto</h2>
+                            <Title text='Atualizar produto' />
 
                             <form onSubmit={(e) => FieldValidation(e)}>
                                 <div className="dashboard--products__two-items">

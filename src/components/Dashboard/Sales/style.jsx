@@ -15,5 +15,6 @@ export const Container = styled.div `
 
     .dashboard--sales__container {
         width: 100%;
+        margin-bottom: 2rem;
     } 
 `

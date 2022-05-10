@@ -7,9 +7,8 @@ const {
 } = Colors.light;
 
 export const Container = styled.div `
-
     .dashboard--sales--client__container {
-        padding-top: 1rem;
+        padding-top: 2rem;
         border-top: 1px solid ${background_second};
 
         h2 {

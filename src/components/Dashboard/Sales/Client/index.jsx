@@ -1,4 +1,5 @@
 import { Container } from "./style";
+import Title from "../../Title/index";
 
 import { useSales } from '../../../../hooks/Sales/index';
 
@@ -10,7 +11,7 @@ export default function DashboardSalesClient() {
         <Container>
             <div className="center--dashboard">
                 <div className="dashboard--sales--client__container">
-                    <h2>Todas as vendas</h2>
+                    <Title text='Todas as vendas' />
 
                     <table>
                         <thead>

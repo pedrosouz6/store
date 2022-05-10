@@ -1,5 +1,6 @@
 import DashboardProductsAllProductsProducts from './Products/index';
 import Search from './Search/index';
+import Title from '../../Title';
 
 import { useProducts } from '../../../../hooks/Products';
 
@@ -15,7 +16,7 @@ export default function DashboardProductsAllProducts() {
             <div className="center--dashboard">
                 <div className="dashboard--all--products__container">
                     <div className="dashboard--all--products__title__search">
-                        <h2>Todos os produtos { datasProducts.length }</h2>
+                        <Title text='Todos os produtos' />
                         { !errorAPI && <Search /> }
                         
                     </div>

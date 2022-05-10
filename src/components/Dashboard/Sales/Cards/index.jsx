@@ -1,16 +1,29 @@
 import { Container } from "./style";
 
+import { useSales } from '../../../../hooks/Sales/index';
+
 export default function DashboardSalesCards() {
+
+    const { purchases } = useSales();
+
+    let totalSales = 0;
+
+    for(let i = 0; i < purchases.length; i++) {
+        totalSales += purchases[i].price_product;
+    }
+
+    console.log(totalSales)
+
     return (
         <Container>
 
             <div className="dashboard--sales--cards__container">
                 <div className="dashboard--sales--cards__cards">
-                    <p>R$ 3.043.846,00</p>
+                    <p>R$ { totalSales }</p>
                     <span>Total de vendas</span>
                 </div>
                 <div className="dashboard--sales--cards__cards">
-                    <p>3.334</p>
+                    <p>{ purchases.length }</p>
                     <span>Itens vendidos</span>
                 </div>
                 <div className="dashboard--sales--cards__cards">

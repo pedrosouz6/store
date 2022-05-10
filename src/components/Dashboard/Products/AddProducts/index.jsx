@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { instance } from '../../../../services/index';
 import { useProducts } from '../../../../hooks/Products';
+import Title from '../../Title';
 
 import PopUp from '../../../PopUp/Message';
 import DashboardProductsPreview from '../Preview';
@@ -95,7 +96,7 @@ export default function DashboardProductsAddProducts() {
                     <div className='dashboard--products__add__products'>
                         <div className="dashboard--products__form__products">
 
-                            <h2>Adicionar produto</h2>
+                            <Title text='Adicionar produto' />
 
                             <form onSubmit={(e) => FieldValidation(e)}>
                                 <div className="dashboard--products__two-items">

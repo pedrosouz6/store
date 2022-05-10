@@ -16,10 +16,10 @@ export default function DashboardSalesGrafic() {
           },
         ],
         
-        ["Yeezy Boost", 8.94, "#6959CD", null],
-        ["MacBook PRO", 10.49, "#6959CD", null],
-        ["Iphone X", 19.3, "#6959CD", null],
-        ["SSD", 21.45, "#6959CD", null],
+        ["Yeezy Boost", 8.94, "#25b36c", null],
+        ["MacBook PRO", 10.49, "#25b36c", null],
+        ["Iphone X", 19.3, "#25b36c", null],
+        ["SSD", 21.45, "#25b36c", null],
     ];
 
     const options = {
