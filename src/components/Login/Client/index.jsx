@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { instance } from '../../../services';
@@ -41,7 +42,7 @@ export default function LoginClient() {
                 <div className='login--client__container'>
 
                     <div className="login--client__header">
-                        <h1>Logo</h1>
+                        <Link to='/'>loja/<span>dev.com</span></Link>
                     </div>
                     
                     <div className="login--client__login">
@@ -69,6 +70,8 @@ export default function LoginClient() {
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
 
                             <input type='submit' value='Entrar' />
+
+                            <Link to='/register'>Criar conta</Link>
                         </form>
                     </div>
 

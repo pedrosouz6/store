@@ -27,11 +27,11 @@ export default function DashboardSalesCards() {
                     <span>Itens vendidos</span>
                 </div>
                 <div className="dashboard--sales--cards__cards">
-                    <p>871</p>
+                    <p>{ purchases.length }</p>
                     <span>Número de Pedidos</span>
                 </div>
                 <div className="dashboard--sales--cards__cards">
-                    <p>R$ 534.000,00</p>
+                    <p>R$ 0,00</p>
                     <span>Total de Reembolso</span>
                 </div>
             </div>

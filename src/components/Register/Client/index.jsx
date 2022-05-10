@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { instance } from '../../../services/index';
@@ -42,7 +43,7 @@ export default function RegisterClient() {
                 <div className='register--client__container'>
 
                     <div className="register--client__header">
-                        <h1>Logo</h1>
+                        <Link to='/'>loja/<span>dev.com</span></Link>
                     </div>
                     
                     <div className="register--client__create__account">
@@ -78,6 +79,8 @@ export default function RegisterClient() {
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
 
                             <input type='submit' value='Criar conta' />
+                            
+                            <Link to='/login'>Já tenho conta</Link>
                         </form>
                     </div>
 

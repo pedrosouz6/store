@@ -6,7 +6,8 @@ const {
     background_primary,
     background_second,
     background_thirdy,
-    transition
+    transition,
+    textColor
 } = Colors.light;
 
 export const Container = styled.div `
@@ -24,16 +25,26 @@ export const Container = styled.div `
         height: auto;
     }
 
-    .register--client__header h1 {
+    .register--client__header a {
+        display: block;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        font-size: 25px;
+        color: ${textColor};
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover span {
+            color: ${background_primary};
+        }
     }
 
     .register--client__create__account {
         width: 100%;
 
         h1 {
-            font-size: 25px;
+            font-size: 22px;
+            font-weight: 600;
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -43,6 +54,17 @@ export const Container = styled.div `
         padding: 30px 25px;
         border-radius: 10px;
         background-color: ${background_second};
+
+        a {
+            text-align: center;
+            display: block;
+            color: ${textColor};
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
 
         i {
             display: block;

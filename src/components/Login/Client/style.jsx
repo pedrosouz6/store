@@ -6,7 +6,8 @@ const {
     background_primary,
     background_second,
     background_thirdy,
-    transition
+    transition,
+    textColor
 } = Colors.light;
 
 export const Container = styled.div `
@@ -24,9 +25,18 @@ export const Container = styled.div `
         height: auto;
     }
 
-    .login--client__header h1 {
+    .login--client__header a {
+        display: block;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        font-size: 25px;
+        color: ${textColor};
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover span {
+            color: ${background_primary};
+        }
     }
 
     .login--client__login {

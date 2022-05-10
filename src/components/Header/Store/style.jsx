@@ -143,7 +143,7 @@ export const Header = styled.header `
 
             transition: ease-in-out .1s;
 
-            &:hover {
+            &:hover {   
                 border-bottom: 2px solid ${background_primary};
             }
         }
