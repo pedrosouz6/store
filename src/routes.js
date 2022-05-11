@@ -26,6 +26,7 @@ import ProviderAmountProduct from './contexts/Store/AmountProduct';
 import ProviderSales from './contexts/Sales';
 
 export default function Routess() {
+
     return (
         <Router>
             <ProviderProducts>
@@ -39,7 +40,6 @@ export default function Routess() {
                             <Route path='/slipper' element={ <StoreSlipper /> } />
                             <Route path='/masculine' element={ <StoreMasculine /> } />
                             <Route path='/feminine' element={ <StoreFeminine /> } />
-
 
                             <Route path='/dashboard/products' element={ <DashboardProducts /> } />
                             <Route path='/dashboard/products/update/:id' element={ <DashboardProductsUpdate /> } />

@@ -34,7 +34,17 @@ export default function RegisterClient() {
             name,
             email,
             password
+        })
+        .then(response => response.data)
+        .then(respost => {
+            if(!respost.error) {
+                return TokenInLocalStogare(respost.token);
+            }    
         });
+    }
+
+    function TokenInLocalStogare(token) {
+        localStorage.setItem('user', JSON.stringify(token));
     }
 
     return (
