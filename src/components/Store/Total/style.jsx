@@ -37,7 +37,7 @@ export const Container = styled.div `
     }
 
     .store--total__total__delivery.none {
-        opacity: .3;
+        color: silver;
     }
 
     .store--total__total__final {

@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../../../styles/Default/index';
+import { Colors } from '../../../../styles/Default';
 
 const {
-    background_primary,
     transition
 } = Colors.light;
 
 export const Container = styled.div `
-    width: 100%;
+     width: 100%;
     height: 100vh;
 
     position: fixed;

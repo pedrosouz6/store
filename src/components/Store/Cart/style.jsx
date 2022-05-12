@@ -19,7 +19,7 @@ export const Container = styled.div `
     }
 
     .store--cart__products {
-        flex: 1 1 300px;
+        flex: 1 1 350px;
         max-width: 100%;
 
         h1 {
@@ -40,6 +40,8 @@ export const Container = styled.div `
 
     .store--cart__card {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
         width: 100%;
         background-color: ${background_second};
@@ -48,6 +50,7 @@ export const Container = styled.div `
 
     .store--cart__content {
         padding: 1rem;
+        flex: 1 1 270px;
     }
 
     .store--cart__title {
@@ -71,11 +74,21 @@ export const Container = styled.div `
             padding: 2px;
         }
     }
-    
-    img {
-        border-radius: 8px 0 0 8px;
-        width: 210px;
-        height: 100%;
+
+    .store--cart__img {
+        flex: 1 1 210px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: white;
+        
+        img {
+            border-radius: 8px 0 0 8px;
+            width: 210px;
+            height: 100%;
+        }
     }
 
     .store--cart__price {

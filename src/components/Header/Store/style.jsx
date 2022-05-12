@@ -46,7 +46,6 @@ export const Header = styled.header `
                     border: none;
                     outline: none;
                     cursor: pointer;
-
                 }
 
                 i {
@@ -158,15 +157,16 @@ export const Header = styled.header `
             display: block;
 
             button {
+                position: absolute;
+                top: -18px;
+                right: -5px;
                 padding: 6px 2px 0 2px;
+                
                 background: none;
                 border: none;
                 outline: none;
                 cursor: pointer;
-                position: fixed;
-                top: 21px;
-                right: 10px;
-                z-index: 99999;
+                z-index: 999;
             }
         }
 

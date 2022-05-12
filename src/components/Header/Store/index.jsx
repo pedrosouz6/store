@@ -27,7 +27,7 @@ export default function HeaderStore() {
     }, [modifyAmount])
 
     return (
-        <Header>
+        <Header >
             <div className="center--store">
                 <div className="header--store__container">
 

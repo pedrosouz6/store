@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import ModalThanks from '../Modal/Thanks/index';
+import ModalCreateAccount from '../Modal/CreateAccount';
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 import { instance } from '../../../services/index';
 
 import { Container } from "./style";
 
 export default function StoreTotal({ priceProducts, productsCart }) {
-    console.log(productsCart)
 
     const { modifyAmount } = useAmountProduct();
     const [ empty, setEmpty ] = useState(true);
@@ -37,6 +37,8 @@ export default function StoreTotal({ priceProducts, productsCart }) {
     return (
         <Container>
             { thanks && <ModalThanks thanks={thanks} setThanks={setThanks} /> }
+            {/* <ModalCreateAccount /> */}
+
             <h2>Resumo do pedido</h2>
             <div className="store--total__total__products">
                 <p>Total de produtos</p>
