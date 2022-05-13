@@ -1,6 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 import { Container } from "./style";
 
-export default function StoreModalCreateAccount() {
+export default function StoreModalCreateAccount({ createAccount, setCreateAccount }) {
+
+    const navigate = useNavigate();
+
+    function CreateAccount() {
+        setCreateAccount(false);
+        navigate('/register');
+    }
+
     return (
         <Container>
             <div className="store--modal__container">
@@ -10,12 +20,12 @@ export default function StoreModalCreateAccount() {
                     
                 <div className="store--modal__content">
                     <p>
-                        Para realizar a compra é necessário criar uma conta.
+                        Para realizar a compra é necessário que você criar uma conta.
                     </p>
-                </div>
+                </div>  
 
                 <div className="store--modal__footer">
-                    <button>Criar conta</button>
+                    <button onClick={() => CreateAccount()}>Criar conta</button>
                 </div>
             </div>
         </Container>

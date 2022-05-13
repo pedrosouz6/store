@@ -4,8 +4,10 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoMdClose } from 'react-icons/io';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { FaUserPlus } from 'react-icons/fa';
 
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
+import { useUser } from '../../../hooks/User'; 
 
 import StoreSearch from '../../Store/Search';
 import { Header } from './style';
@@ -13,6 +15,9 @@ import { Header } from './style';
 export default function HeaderStore() {
 
     const navigate = useNavigate();
+
+    const { userLogged, nameUser } = useUser();
+    console.log(nameUser)
     const { modifyAmount } = useAmountProduct();
 
     const [ amountProducts, setAmountProducts ] = useState([]);
@@ -39,13 +44,22 @@ export default function HeaderStore() {
                         <nav>
                             <ul>
                                 <li id='search'><StoreSearch /></li>
-                                <li onClick={() => PageCart()} id='amount__products'>
-                                    
+
+                                {
+                                    !userLogged && 
+                                    <li>
+                                        <button onClick={() => navigate('/register')}>
+                                            <i><FaUserPlus /></i>
+                                        </button>
+                                    </li>
+                                }
+
+                                <li onClick={() => PageCart()}>
                                     <button>
                                         <i><RiShoppingBag3Fill /></i>
-                                        { amountProducts.length !== 0 && <span>{ amountProducts.length }</span> }
+                                        { amountProducts.length !== 0 && 
+                                        <span>{ amountProducts.length }</span> }
                                     </button>
-                                    
                                 </li>
 
                                 <li id='menu__responsive'>

@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 
 import ModalThanks from '../Modal/Thanks/index';
 import ModalCreateAccount from '../Modal/CreateAccount';
+
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
+import { useUser } from '../../../hooks/User/index';
 import { instance } from '../../../services/index';
 
 import { Container } from "./style";
@@ -10,8 +12,11 @@ import { Container } from "./style";
 export default function StoreTotal({ priceProducts, productsCart }) {
 
     const { modifyAmount } = useAmountProduct();
+    const { userLogged } = useUser();
+
     const [ empty, setEmpty ] = useState(true);
     const [ thanks, setThanks ] = useState(false);
+    const [ createAccount, setCreateAccount ] = useState(false);
 
     useEffect(() => {
         const products = JSON.parse(localStorage.getItem('products')) || [];
@@ -34,10 +39,20 @@ export default function StoreTotal({ priceProducts, productsCart }) {
         }
     }
 
+    function ValidateUserLogged() {
+        if(userLogged) {
+            ModalThanksValidate();
+            return setCreateAccount(false);
+        }
+
+        return setCreateAccount(true);
+    }
+
     return (
         <Container>
             { thanks && <ModalThanks thanks={thanks} setThanks={setThanks} /> }
-            {/* <ModalCreateAccount /> */}
+
+            { createAccount && <ModalCreateAccount createAccount={createAccount} setCreateAccount={setCreateAccount} /> }
 
             <h2>Resumo do pedido</h2>
             <div className="store--total__total__products">
@@ -53,7 +68,7 @@ export default function StoreTotal({ priceProducts, productsCart }) {
                 <p><strong>R$ { empty ? priceProducts > 900 ? priceProducts : priceProducts + 45 : '0'},00</strong></p>
             </div>
             <div className="store--total__button__buy">
-                <button onClick={() => ModalThanksValidate()}>Finalizar compra</button>
+                <button onClick={() => ValidateUserLogged()}>Finalizar compra</button>
             </div>
         </Container>
     )

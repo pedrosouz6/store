@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { instance } from '../../../services/index';
+import { useUser } from '../../../hooks/User';
 
 import { Container } from './style';
 
 export default function RegisterClient() {
+
+    const { validateUser, setValidateUser } = useUser();
+    const navigate = useNavigate();
 
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
@@ -38,13 +42,15 @@ export default function RegisterClient() {
         .then(response => response.data)
         .then(respost => {
             if(!respost.error) {
-                return TokenInLocalStogare(respost.token);
+                return DatasUser(respost);
             }    
         });
     }
 
-    function TokenInLocalStogare(token) {
-        localStorage.setItem('user', JSON.stringify(token));
+    function DatasUser(datas) {
+        setValidateUser(!validateUser);
+        localStorage.setItem('user', JSON.stringify(datas));
+        navigate('/');
     }
 
     return (

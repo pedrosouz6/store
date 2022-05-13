@@ -37,12 +37,12 @@ export const Header = styled.header `
             align-items: center;
             gap: 1.5rem;
 
-            #amount__products {
+            li {
                 button {
                     position: relative;
-                    height: 35px;
+                    height: 30px;
+                    padding-top: 5px;
                     background: none;
-                    padding: 0 12px; 
                     border: none;
                     outline: none;
                     cursor: pointer;
@@ -64,8 +64,8 @@ export const Header = styled.header `
                     justify-content: center;
 
                     position: absolute;
-                    bottom: 0;
-                    right: 0;
+                    bottom: -3px;
+                    right: -10px;
 
                     font-size: 8pt;
                     letter-spacing: .3px;
@@ -100,7 +100,6 @@ export const Header = styled.header `
         display: none;
         
         button {
-            padding: 6px 2px 0 2px;
             background: none;
             border: none;
             outline: none;
@@ -155,11 +154,12 @@ export const Header = styled.header `
     @media (max-width: 700px) {
         #menu__responsive {
             display: block;
+            width: 17px;
 
             button {
                 position: absolute;
-                top: -18px;
-                right: -5px;
+                top: -16px;
+                right: -6px;
                 padding: 6px 2px 0 2px;
                 
                 background: none;
