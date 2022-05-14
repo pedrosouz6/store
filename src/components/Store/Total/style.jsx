@@ -4,7 +4,8 @@ import { Colors } from '../../../styles/Default';
 
 const {
     background_second,
-    background_primary
+    background_primary,
+    transition
 } = Colors.light;
 
 export const Container = styled.div `
@@ -65,6 +66,11 @@ export const Container = styled.div `
             font-size: 11pt;
             letter-spacing: .3px;
             cursor: pointer;
+            transition: ${transition};
+
+            &:hover {
+                opacity: .8;
+            }
         }
     }
 `

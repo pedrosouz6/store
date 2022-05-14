@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../../../styles/Default';
+import { Colors } from '../../../../styles/Default/index';
 
 const {
-    transition,
     background_primary,
-    errorColor
+    transition
 } = Colors.light;
 
 export const Container = styled.div `
@@ -49,37 +48,13 @@ export const Container = styled.div `
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: .8rem;
 
-        #create {
+        button {
             width: 150px;
             height: 35px;
             border-radius: 25px;
 
-            background-color: ${background_primary};
-            color: white;
-
-            letter-spacing: .3px;
-            font-size: 11pt;
-            font-weight: 500;
-
-            cursor: pointer;
-            border: none;
-            outline: none;
-
-            transition: ${transition};
-
-            &:hover {
-                opacity: .8;
-            }
-        }
-
-        #cancel {
-            width: 110px;
-            height: 30px;
-            border-radius: 25px;
-
-            background-color: ${errorColor};
+            background-color: #268f37;
             color: white;
 
             letter-spacing: .3px;

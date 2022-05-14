@@ -11,6 +11,10 @@ export default function StoreModalCreateAccount({ createAccount, setCreateAccoun
         navigate('/register');
     }
 
+    function CloseCreateAccount() {
+        setCreateAccount(false);
+    }
+
     return (
         <Container>
             <div className="store--modal__container">
@@ -20,12 +24,13 @@ export default function StoreModalCreateAccount({ createAccount, setCreateAccoun
                     
                 <div className="store--modal__content">
                     <p>
-                        Para realizar a compra é necessário que você criar uma conta.
+                        Para realizar a compra é necessário que você crie uma conta.
                     </p>
                 </div>  
 
                 <div className="store--modal__footer">
-                    <button onClick={() => CreateAccount()}>Criar conta</button>
+                    <button onClick={() => CloseCreateAccount()} id='cancel'>Fechar</button>
+                    <button onClick={() => CreateAccount()} id='create'>Criar conta</button>
                 </div>
             </div>
         </Container>
