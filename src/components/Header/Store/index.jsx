@@ -5,6 +5,9 @@ import { RiShoppingBag3Fill } from 'react-icons/ri';
 import { IoMdClose } from 'react-icons/io';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { FaUserPlus } from 'react-icons/fa';
+import { BsBoxArrowInLeft } from 'react-icons/bs';
+import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowUp } from 'react-icons/md';
 
 import { useAmountProduct } from '../../../hooks/Store/AmountProduct/index';
 import { useUser } from '../../../hooks/User'; 
@@ -16,15 +19,21 @@ export default function HeaderStore() {
 
     const navigate = useNavigate();
 
-    const { userLogged, nameUser } = useUser();
-    console.log(nameUser)
+    const { userLogged, validateUser, setValidateUser, nameUser } = useUser();
+    
     const { modifyAmount } = useAmountProduct();
 
     const [ amountProducts, setAmountProducts ] = useState([]);
     const [ menuResponsive, setMenuResponsive ] = useState(false);
+    const [ buttonSignOut, setButtonSignOut ] = useState(false);
 
     function PageCart() {
         navigate('/cart');
+    }
+
+    function SignOut() {
+        localStorage.removeItem('user');
+        setValidateUser(!validateUser);
     }
 
     useEffect(() => {
@@ -46,15 +55,33 @@ export default function HeaderStore() {
                                 <li id='search'><StoreSearch /></li>
 
                                 {
-                                    !userLogged && 
+                                    !userLogged ?
                                     <li>
                                         <button onClick={() => navigate('/register')}>
                                             <i><FaUserPlus /></i>
                                         </button>
+                                    </li> :
+
+                                    <li id='header--store__name__user'>Olá, 
+                                        <span onClick={() => setButtonSignOut(!buttonSignOut)}>
+                                            { nameUser } 
+                                            { 
+                                                buttonSignOut ? 
+                                                <MdKeyboardArrowUp /> : 
+                                                <MdKeyboardArrowDown /> 
+                                            }
+                                        </span>
+
+                                        { 
+                                            buttonSignOut && 
+                                            <button onClick={() => SignOut()}>
+                                                <i><BsBoxArrowInLeft /></i> Sair
+                                            </button>
+                                        }
                                     </li>
                                 }
 
-                                <li onClick={() => PageCart()}>
+                                <li onClick={() => PageCart()} id='amount'>
                                     <button>
                                         <i><RiShoppingBag3Fill /></i>
                                         { amountProducts.length !== 0 && 

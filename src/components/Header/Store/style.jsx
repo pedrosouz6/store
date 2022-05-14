@@ -38,6 +38,21 @@ export const Header = styled.header `
             gap: 1.5rem;
 
             li {
+                list-style: none;
+                position: relative;
+                z-index: 9999;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    
+                    i + i {
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            li {
                 button {
                     position: relative;
                     height: 30px;
@@ -46,8 +61,16 @@ export const Header = styled.header `
                     border: none;
                     outline: none;
                     cursor: pointer;
+                    
+                        i {
+                        padding-top: 4px;
+                        font-size: 22px;
+                        color: #333;
+                    }
                 }
+            }
 
+            #amount button {
                 i {
                     padding-top: 4px;
                     font-size: 22px;
@@ -79,17 +102,40 @@ export const Header = styled.header `
                 width: 250px;
             }
 
-            li {
-                list-style: none;
-                position: relative;
-                z-index: 9999;
+            #header--store__name__user {
+                display: flex;
+                gap: 5px;
 
-                a {
-                    text-decoration: none;
-                    color: black;
-                    
+                span {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: ${transition};
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    padding: 5px 15px;
+                    background-color: ${background_primary};
+                    border-radius: 25px;
+
+                    position: absolute;
+                    bottom: -40px;
+                    right: 0;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+
                     i {
-                        font-size: 22px;
+                        padding-top: 3px;
+                        color: white;
+                        font-size: 12pt;
                     }
                 }
             }
