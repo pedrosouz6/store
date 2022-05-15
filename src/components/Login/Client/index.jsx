@@ -12,6 +12,7 @@ export default function LoginClient() {
     const [ password, setPassword ] = useState('');
 
     const [ messageErro, setMessageErro ] = useState(false);
+    const [ message, setMessage ] = useState('');
 
     function FieldValidation(e) {
         e.preventDefault();
@@ -33,7 +34,14 @@ export default function LoginClient() {
             password
         })
         .then(response => response.data)
-        .then(respost => console.log(respost));
+        .then(respost => {
+            console.log(respost)
+            if(respost.error) {
+                return setMessage(respost.message);
+            }
+
+            return setMessage('');
+        });
     }
 
     return (
@@ -49,8 +57,10 @@ export default function LoginClient() {
                         <h1>Login</h1>
                         <form onSubmit={e => FieldValidation(e)}>
 
-                            <i><FaUserCircle /></i>
-
+                            <div className="icon">
+                                <i><FaUserCircle /></i>
+                            </div>
+                            
                             <input 
                             type='email'
                             placeholder='Email'
@@ -60,7 +70,7 @@ export default function LoginClient() {
                             />
 
                             <input
-                            type='password'
+                            type={'text'}   
                             placeholder='Senha'
                             value={password}
                             onChange={e => setPassword(e.target.value)}
@@ -68,6 +78,7 @@ export default function LoginClient() {
                             />
 
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
+                            { !message == ''  && <p id='message--erro'>{ message }</p>  }
 
                             <input type='submit' value='Entrar' />
 

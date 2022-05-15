@@ -54,12 +54,24 @@ export const Container = styled.div `
         border-radius: 10px;
         background-color: ${background_second};
 
+        a {
+            display: block;
+            text-align: center;
+            color: ${textColor};
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
         i {
             display: block;
             font-size: 88px;
             text-align: center;
             color: ${background_primary};
         }
+        
     
         input {
             width: 100%;
@@ -74,7 +86,7 @@ export const Container = styled.div `
             letter-spacing: .3px;
     
             outline: none;
-            border: none;
+            border: 2px solid white;
 
             transition: ${transition};
 
