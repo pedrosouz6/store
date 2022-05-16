@@ -13,7 +13,8 @@ import DashboardProductsUpdate from './pages/Dashboard/Products/Update/index';
 
 import RegisterClient from './pages/Register/Client/index';
 import LoginClient from './pages/Login/Client/index';
-import ResetPasswordClient from './components/ResetPassword';
+import ResetPasswordClient from './pages/ResetPassword/index';
+import NewPasswordClient from './pages/NewPassword/index'
 
 import StoreCart from './pages/Store/Cart/index';
 import StoreDetails from './pages/Store/Details';
@@ -51,6 +52,7 @@ export default function Routess() {
                                 <Route path='/details/:id' element={ <StoreDetails /> } />  
 
                                 <Route path='/reset-password/client' element={ <ResetPasswordClient /> } />
+                                <Route path='/new-password/client/:email' element={ <NewPasswordClient /> } />
                             </Routes>
                         </ProviderUser>
                     </ProviderSales>

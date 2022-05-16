@@ -24,27 +24,27 @@ export default function ResetPasswordClient() {
         }
 
         setMessageErro(false);
-        Login();
+        // Login();
+        DatasUser();
     }
 
-    function Login() {
-        instance.post('/login/client', {
-            email
-        })
-        .then(response => response.data)
-        .then(respost => {
-            if(respost.error) {
-                return setMessageAPI(respost.message);
-            }
+    // function Login() {
+    //     instance.post('/login/client', {
+    //         email
+    //     })
+    //     .then(response => response.data)
+    //     .then(respost => {
+    //         if(respost.error) {
+    //             return setMessageAPI(respost.message);
+    //         }    
 
-            return DatasUser(respost);
-        });
-    }
+    //         return DatasUser(respost);
+    //     });
+    // }
     
-    function DatasUser(datas) {
+    function DatasUser() {
         setMessageAPI('');
-        localStorage.setItem('user', JSON.stringify(datas));
-        navigate('/');
+        navigate(`/new-password/client/${email}`);
     }
 
     return (
@@ -56,7 +56,7 @@ export default function ResetPasswordClient() {
                         <Link to='/'>loja/<span>dev.com</span></Link>
                     </div>
                     
-                    <h1>Mudar senha</h1>
+                    <h1>Digite seu email</h1>
                     
                     <form onSubmit={e => FieldValidation(e)}>
 
@@ -75,11 +75,9 @@ export default function ResetPasswordClient() {
                         { messageErro && <p id='message--erro'>Digite seu email</p>  }
                         { !messageAPI == ''  && <p id='message--erro'>{ messageAPI }</p>  }
 
-                        <input type='submit' value='Entrar' />
+                        <input type='submit' value='Próximo passo' />
 
-                        <Link to='/register'>Criar conta</Link>
                     </form>
-
                 </div>
             </div>
         </Container>
