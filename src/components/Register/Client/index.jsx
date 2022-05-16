@@ -17,6 +17,7 @@ export default function RegisterClient() {
     const [ password, setPassword ] = useState('');
 
     const [ messageErro, setMessageErro ] = useState(false);
+    const [ messageAPI, setMessageAPI ] = useState('');
 
     function FieldValidation(e) {
         e.preventDefault();
@@ -41,13 +42,16 @@ export default function RegisterClient() {
         })
         .then(response => response.data)
         .then(respost => {
-            if(!respost.error) {
-                return DatasUser(respost);
+            if(respost.error) {
+                return setMessageAPI(respost.message);
             }    
+
+            return DatasUser(respost);
         });
     }
 
     function DatasUser(datas) {
+        setMessageAPI('');
         setValidateUser(!validateUser);
         localStorage.setItem('user', JSON.stringify(datas));
         navigate('/');
@@ -93,6 +97,7 @@ export default function RegisterClient() {
                             />
 
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
+                            { !messageAPI == '' && <p id='message--erro'>{ messageAPI }</p> }
 
                             <input type='submit' value='Criar conta' />
                             

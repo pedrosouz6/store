@@ -17,7 +17,7 @@ export default function ProviderUser({ children }) {
         
         const userJSON = JSON.parse(user);
         setNameUser(userJSON.user.name);
-        return setUserLogged(true);
+        setUserLogged(true);
     }, [validateUser]);
 
     return (

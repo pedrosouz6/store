@@ -1,18 +1,22 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { instance } from '../../../services';
+import { useUser } from '../../../hooks/User';
 
 import { Container } from './style';
 
 export default function LoginClient() {
 
+    const navigate = useNavigate();
+    const { validateUser, setValidateUser } = useUser();
+
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
     const [ messageErro, setMessageErro ] = useState(false);
-    const [ message, setMessage ] = useState('');
+    const [ messageAPI, setMessageAPI ] = useState('');
 
     function FieldValidation(e) {
         e.preventDefault();
@@ -35,13 +39,19 @@ export default function LoginClient() {
         })
         .then(response => response.data)
         .then(respost => {
-            console.log(respost)
             if(respost.error) {
-                return setMessage(respost.message);
+                return setMessageAPI(respost.message);
             }
 
-            return setMessage('');
+            return DatasUser(respost);
         });
+    }
+    
+    function DatasUser(datas) {
+        setMessageAPI('');
+        localStorage.setItem('user', JSON.stringify(datas));
+        setValidateUser(!validateUser);
+        navigate('/');
     }
 
     return (
@@ -70,7 +80,7 @@ export default function LoginClient() {
                             />
 
                             <input
-                            type={'text'}   
+                            type='password'   
                             placeholder='Senha'
                             value={password}
                             onChange={e => setPassword(e.target.value)}
@@ -78,7 +88,7 @@ export default function LoginClient() {
                             />
 
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
-                            { !message == ''  && <p id='message--erro'>{ message }</p>  }
+                            { !messageAPI == ''  && <p id='message--erro'>{ messageAPI }</p>  }
 
                             <input type='submit' value='Entrar' />
 
