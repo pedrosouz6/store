@@ -50,36 +50,35 @@ export default function ResetPasswordClient() {
     return (
         <Container>
             <div className='center--store'>
+                <div className='reset--password--client__container'>
+
                     <div className="reset--password--client__header">
                         <Link to='/'>loja/<span>dev.com</span></Link>
                     </div>
-                <div className='reset--password--client__container'>
-
                     
-                    <div className="reset--password--client__login">
-                        <h1>Mudar senha</h1>
-                        <form onSubmit={e => FieldValidation(e)}>
+                    <h1>Mudar senha</h1>
+                    
+                    <form onSubmit={e => FieldValidation(e)}>
 
-                            <div className="icon">
-                                <i><FaUserCircle /></i>
-                            </div>
-                            
-                            <input 
-                            type='email'
-                            placeholder='Email'
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            required
-                            />
+                        <div className="icon">
+                            <i><FaUserCircle /></i>
+                        </div>
+                        
+                        <input 
+                        type='email'
+                        placeholder='Email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        />
 
-                            { messageErro && <p id='message--erro'>Digite seu email</p>  }
-                            { !messageAPI == ''  && <p id='message--erro'>{ messageAPI }</p>  }
+                        { messageErro && <p id='message--erro'>Digite seu email</p>  }
+                        { !messageAPI == ''  && <p id='message--erro'>{ messageAPI }</p>  }
 
-                            <input type='submit' value='Entrar' />
+                        <input type='submit' value='Entrar' />
 
-                            <Link to='/register'>Criar conta</Link>
-                        </form>
-                    </div>
+                        <Link to='/register'>Criar conta</Link>
+                    </form>
 
                 </div>
             </div>

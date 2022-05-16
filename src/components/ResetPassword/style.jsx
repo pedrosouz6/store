@@ -15,10 +15,11 @@ export const Container = styled.div `
         width: 100%;
         height: 100vh;
         background-color: ${background_thirdy};
-        
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
     }
 
     .reset--password--client__header a {
@@ -35,19 +36,16 @@ export const Container = styled.div `
         }
     }
 
-    .reset--password--client__login {
-        flex: 1;
-        max-width: 400px;
+    h1 {
+        font-size: 25px;
 
-        h1 {
-            font-size: 25px;
-
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
     form {
+        flex: 0 1 200px;
+        max-width: 400px;
         width: 100%;
         padding: 30px 25px;
         border-radius: 10px;

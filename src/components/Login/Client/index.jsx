@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { FaEyeSlash } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
+
 import { FaUserCircle } from 'react-icons/fa';
 import { instance } from '../../../services';
 import { useUser } from '../../../hooks/User';
@@ -14,7 +17,7 @@ export default function LoginClient() {
 
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-
+    const [ typePassword, setTypePassword ] = useState(true);
     const [ messageErro, setMessageErro ] = useState(false);
     const [ messageAPI, setMessageAPI ] = useState('');
 
@@ -54,6 +57,11 @@ export default function LoginClient() {
         navigate('/');
     }
 
+    function TypePassword(e) {
+        e.preventDefault();
+        setTypePassword(!typePassword);
+    }
+
     return (
         <Container>
             <div className='center--store'>
@@ -63,38 +71,44 @@ export default function LoginClient() {
                         <Link to='/'>loja/<span>dev.com</span></Link>
                     </div>
                     
-                    <div className="login--client__login">
-                        <h1>Login</h1>
-                        <form onSubmit={e => FieldValidation(e)}>
+                    <h1>Login</h1>
+                    
+                    <form onSubmit={e => FieldValidation(e)}>
 
-                            <div className="icon">
-                                <i><FaUserCircle /></i>
-                            </div>
-                            
-                            <input 
-                            type='email'
-                            placeholder='Email'
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            required
-                            />
+                        <div className="icon">
+                            <i><FaUserCircle /></i>
+                        </div>
+                        
+                        <input 
+                        type='email'
+                        placeholder='Email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        />
 
+                        <div className="password">
                             <input
-                            type='password'   
+                            type={ typePassword ? 'password' : 'text' }   
                             placeholder='Senha'
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                             required
                             />
 
-                            { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
-                            { !messageAPI == ''  && <p id='message--erro'>{ messageAPI }</p>  }
+                            <button onClick={e => TypePassword(e)}>
+                                { typePassword ? <i><FaEye /></i> : <i><FaEyeSlash /></i>}
+                            </button>
+                        </div>
 
-                            <input type='submit' value='Entrar' />
+                        { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
+                        { !messageAPI == ''  && <p id='message--erro'>{ messageAPI }</p>  }
 
-                            <Link to='/register'>Criar conta</Link>
-                        </form>
-                    </div>
+                        <input type='submit' value='Entrar' />
+
+                        <Link to='/register'>Criar conta</Link>
+                        <Link to='/reset-password/client'>Esqueceu a senha?</Link>
+                    </form>
 
                 </div>
             </div>
