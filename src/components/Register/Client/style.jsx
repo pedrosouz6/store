@@ -99,6 +99,30 @@ export const Container = styled.div `
             }
         }
 
+        .password {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 1.5rem;
+
+            position: relative;
+
+            input {
+                padding-right: 40px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            i {
+                cursor: pointer;
+                font-size: 13pt;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-40%);
+                right: 10px;
+            }
+        }   
+
         input[type='submit'] {
             background-color: ${background_primary};
             color: ${background_thirdy};

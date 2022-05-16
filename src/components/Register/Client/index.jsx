@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { FaEyeSlash } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
+
 import { FaUserCircle } from 'react-icons/fa';
 import { instance } from '../../../services/index';
 import { useUser } from '../../../hooks/User';
@@ -15,6 +18,7 @@ export default function RegisterClient() {
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [ typePassword, setTypePassword ] = useState(true);
 
     const [ messageErro, setMessageErro ] = useState(false);
     const [ messageAPI, setMessageAPI ] = useState('');
@@ -57,6 +61,11 @@ export default function RegisterClient() {
         navigate('/');
     }
 
+    function TypePassword(e) {
+        e.preventDefault();
+        setTypePassword(!typePassword);
+    }
+
     return (
         <Container>
             <div className='center--store'>
@@ -88,13 +97,19 @@ export default function RegisterClient() {
                             required
                             />
 
-                            <input
-                            type='password'
-                            placeholder='Senha'
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            required
-                            />
+                            <div className="password">
+                                <input
+                                type={ typePassword ? 'password' : 'text' }   
+                                placeholder='Senha'
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                required
+                                />
+
+                                <button onClick={e => TypePassword(e)}>
+                                    { typePassword ? <i><FaEye /></i> : <i><FaEyeSlash /></i>}
+                                </button>
+                            </div>
 
                             { messageErro && <p id='message--erro'>Preencha o(s) campo(s)</p>  }
                             { !messageAPI == '' && <p id='message--erro'>{ messageAPI }</p> }
