@@ -13,6 +13,7 @@ import DashboardProductsUpdate from './pages/Dashboard/Products/Update/index';
 
 import RegisterClient from './pages/Register/Client/index';
 import LoginClient from './pages/Login/Client/index';
+import ResetPasswordClient from './components/ResetPassword';
 
 import StoreCart from './pages/Store/Cart/index';
 import StoreDetails from './pages/Store/Details';
@@ -48,6 +49,8 @@ export default function Routess() {
 
                                 <Route path='/cart' element={ <StoreCart /> } />  
                                 <Route path='/details/:id' element={ <StoreDetails /> } />  
+
+                                <Route path='/reset-password/client' element={ <ResetPasswordClient /> } />
                             </Routes>
                         </ProviderUser>
                     </ProviderSales>
