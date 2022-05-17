@@ -106,8 +106,8 @@ export default function LoginClient() {
 
                         <input type='submit' value='Entrar' />
 
+                        <Link to='/reset-password/client'>Esqueceu a senha?</Link> <br/>
                         <Link to='/register'>Criar conta</Link>
-                        <Link to='/reset-password/client'>Esqueceu a senha?</Link>
                     </form>
 
                 </div>

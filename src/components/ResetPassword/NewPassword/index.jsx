@@ -42,16 +42,14 @@ export default function ResetPasswordClient() {
                 return setMessageAPI(respost.message);  
             }
 
-            console.log(respost)
-            // return DatasUser(respost);
+            return DatasUser();
         });
     }
     
-    // function DatasUser(datas) {
-    //     setMessageAPI('');
-    //     localStorage.setItem('user', JSON.stringify(datas));
-    //     navigate('/');
-    // }
+    function DatasUser() {
+        setMessageAPI('');
+        navigate('/');
+    }
 
     function TypePassword(e) {
         e.preventDefault();
