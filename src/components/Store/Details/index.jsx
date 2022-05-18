@@ -12,14 +12,11 @@ export default function StoreDetails() {
     const { id } = useParams();
 
     const { modifyAmount, setModifyAmount } = useAmountProduct();
-
     const [ datasDetails, setDatasDetails ] = useState([]);
-
-    const [ products, setProducts ] = useState([]);
+    
+    const userLocal = JSON.parse(localStorage.getItem('user')) || null;
 
     useEffect(() => {
-        setProducts(JSON.parse(localStorage.getItem('products')) || [] );
-
         instance.get(`/get/details/${id}`)
         .then(response => response.data)
         .then(respost => {
@@ -32,17 +29,15 @@ export default function StoreDetails() {
 
     function AddProduct() {
         setModifyAmount(!modifyAmount);
-        const validateProduct = products.filter(item => item.id_product == id);
-        
-        if(validateProduct.length == 0) {
-            return setProducts([...products, datasDetails]);
+        if(userLocal) {
+            return instance.post('/add/product/cart', {
+                id_client: userLocal.user.id,
+                id_product: id  
+            })
         }
 
-        console.log('produto ja adicionado');
-    }
-
-    if(products.length > 0) {
-        localStorage.setItem('products', JSON.stringify(products));
+        return console.log('usuario nao esta logado')
+        
     }
 
     return (
