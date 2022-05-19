@@ -12,8 +12,6 @@ export default function DashboardSalesCards() {
         totalSales += purchases[i].price_product;
     }
 
-    console.log(totalSales)
-
     return (
         <Container>
 

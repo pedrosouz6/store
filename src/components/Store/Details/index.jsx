@@ -13,31 +13,33 @@ export default function StoreDetails() {
 
     const { modifyAmount, setModifyAmount } = useAmountProduct();
     const [ datasDetails, setDatasDetails ] = useState([]);
+    const [ products, setProducts ] = useState([]);
     
-    const userLocal = JSON.parse(localStorage.getItem('user')) || null;
-
     useEffect(() => {
+        setProducts(JSON.parse(localStorage.getItem('products')) || [] );
+
         instance.get(`/get/details/${id}`)
         .then(response => response.data)
         .then(respost => {
             if(respost.error) {
                 return console.log(respost.message);
             }
+
             return setDatasDetails(respost.results[0]);
         })
     }, []);
 
     function AddProduct() {
         setModifyAmount(!modifyAmount);
-        if(userLocal) {
-            return instance.post('/add/product/cart', {
-                id_client: userLocal.user.id,
-                id_product: id  
-            })
-        }
+        const validateProduct = products.filter(item => item.id_product == id);
 
-        return console.log('usuario nao esta logado')
-        
+        if(validateProduct.length == 0) {
+            return setProducts([...products, datasDetails]);
+        }
+    }
+
+    if(products.length > 0) {
+        localStorage.setItem('products', JSON.stringify(products));
     }
 
     return (

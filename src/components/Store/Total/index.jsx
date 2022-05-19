@@ -20,6 +20,8 @@ export default function StoreTotal({ priceProducts, productsCart }) {
     const [ createAccount, setCreateAccount ] = useState(false);
     const [ noProduct, setNoProduct ] = useState(false);
 
+    const user = JSON.parse(localStorage.getItem('user') || null);
+
     useEffect(() => {
         const products = JSON.parse(localStorage.getItem('products')) || [];
         if(products.length < 1) {
@@ -31,9 +33,10 @@ export default function StoreTotal({ priceProducts, productsCart }) {
 
     const id_products = productsCart.map(item => item.id_product);
 
-    function ModalThanksValidate() {
+    function ModalThanksValidate(id) {
+        console.log(id)
         instance.post('/buy/product', {
-            id_client: 1, 
+            id_client: id, 
             id_products
         });
         if(!empty) {
@@ -47,7 +50,7 @@ export default function StoreTotal({ priceProducts, productsCart }) {
         }
         
         if(userLogged) {
-            ModalThanksValidate();
+            ModalThanksValidate(user.user.id);
             return setCreateAccount(false);
         }
 
