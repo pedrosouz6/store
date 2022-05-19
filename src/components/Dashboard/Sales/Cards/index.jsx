@@ -17,7 +17,7 @@ export default function DashboardSalesCards() {
 
             <div className="dashboard--sales--cards__container">
                 <div className="dashboard--sales--cards__cards">
-                    <p>R$ { totalSales }</p>
+                    <p>R$ { totalSales },00</p>
                     <span>Total de vendas</span>
                 </div>
                 <div className="dashboard--sales--cards__cards">

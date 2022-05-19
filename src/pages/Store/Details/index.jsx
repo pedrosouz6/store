@@ -1,6 +1,7 @@
 import Header from '../../../components/Header/Store/index';
 import ButtonBack from '../../../components/Store/ButtonBack';
 import Details from "../../../components/Store/Details";
+import Footer from '../../../components/Store/Footer';
 
 export default function StoreDetails() {
     return (
@@ -8,6 +9,7 @@ export default function StoreDetails() {
             <Header />
             <ButtonBack />
             <Details />
+            <Footer />
         </>
     )
 }

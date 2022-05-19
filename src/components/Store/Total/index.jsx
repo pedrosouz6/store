@@ -12,7 +12,7 @@ import { Container } from "./style";
 
 export default function StoreTotal({ priceProducts, productsCart }) {
 
-    const { modifyAmount } = useAmountProduct();
+    const { modifyAmount, setModifyAmount } = useAmountProduct();
     const { userLogged } = useUser();
 
     const [ empty, setEmpty ] = useState(true);
@@ -34,11 +34,18 @@ export default function StoreTotal({ priceProducts, productsCart }) {
     const id_products = productsCart.map(item => item.id_product);
 
     function ModalThanksValidate(id) {
-        console.log(id)
         instance.post('/buy/product', {
             id_client: id, 
             id_products
-        });
+        })
+        .then(response => response.data)
+        .then(respost => {
+            if(!respost.error) {
+                localStorage.removeItem('products');
+                setModifyAmount(!modifyAmount);
+            }
+        })
+
         if(!empty) {
             setThanks(!thanks);
         }
@@ -46,7 +53,7 @@ export default function StoreTotal({ priceProducts, productsCart }) {
 
     function ValidateUserLogged() {
         if(empty) {
-            return setNoProduct(true);
+            return setNoProduct(true);  
         }
         
         if(userLogged) {
