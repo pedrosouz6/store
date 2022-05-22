@@ -1,18 +1,14 @@
-import { useState } from "react";
-
 import { Container } from "./style";
 
 export default function StoreFilter() {
 
     return (
         <Container>
-
             <select>
-                <option>Ordenar por</option>
-                <option>Maior Preço</option>
-                <option>Menor Preço</option>
+                <option value=''>Ordenar por</option>
+                <option value='-1'>Maior Preço</option>
+                <option value='1'>Menor Preço</option>
             </select>
-
         </Container>
     )
 }

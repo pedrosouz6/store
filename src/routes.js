@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import StoreHome from './pages/Store/Home/index';
+import StoreAll from './pages/Store/Home/index';
+import StoreHome from './components/Store/Home';
 import StoreSneakers from './pages/Store/Sneakers/index';
 import StoreSlipper from './pages/Store/Slipper/index';
 import StoreMasculine from './pages/Store/Masculine/index';
@@ -32,8 +33,9 @@ export default function Routess() {
                     <ProviderSales>
                         <ProviderUser>
                             <Routes>
-                                <Route path='*' element={ <StoreHome /> } />
+                                <Route path='*' element={ <StoreAll /> } />
                                 <Route path='/' element={ <StoreHome /> } />
+                                <Route path='/all' element={ <StoreAll /> } />
                                 <Route path='/sneakers' element={ <StoreSneakers /> } />
                                 <Route path='/slipper' element={ <StoreSlipper /> } />
                                 <Route path='/masculine' element={ <StoreMasculine /> } />

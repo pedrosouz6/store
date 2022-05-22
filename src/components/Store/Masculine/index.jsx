@@ -10,7 +10,6 @@ export default function StoreSlipper() {
 
     const [ datasMasculine, setDatasMasculine ] = useState([]);
 
-
     const navigate = useNavigate();
 
     useEffect(() => {

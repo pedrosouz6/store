@@ -102,7 +102,8 @@ export default function HeaderStore() {
                         <nav>
                             <ul>
                                 <li id='search'><StoreSearch /></li>
-                                <li><NavLink to='/' activeclassname='active'>Todos os produtos</NavLink></li>
+                                <li><NavLink to='/' activeclassname='active'>Home</NavLink></li>
+                                <li><NavLink to='/all' activeclassname='active'>Todos os produtos</NavLink></li>
                                 <li><NavLink to='/sneakers' activeclassname='active'>Tênis</NavLink></li>
                                 <li><NavLink to='/slipper' activeclassname='active' >Chinelo</NavLink></li>
                                 <li><NavLink to='/masculine' activeclassname='active' >Masculino</NavLink></li>
